@@ -1,0 +1,140 @@
+﻿CREATE TABLE `t_course_instructor` (
+  `CourseInstructorID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `CourseID` INTEGER(11) DEFAULT NULL,
+  `Year` INTEGER(11) DEFAULT NULL,
+  `SemisterID` INTEGER(11) DEFAULT NULL,
+  `InstructorID` INTEGER(11) DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`CourseInstructorID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=1 ROW_FORMAT=FIXED CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `t_course_students` (
+  `CourseStudentID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `CourseID` INTEGER(11) DEFAULT NULL,
+  `StudentID` INTEGER(11) DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`CourseStudentID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=1 ROW_FORMAT=FIXED CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `t_courses` (
+  `CourseID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `SubjectID` INTEGER(11) DEFAULT NULL,
+  `Course` VARCHAR(100) COLLATE utf8_general_ci DEFAULT NULL,
+  `CourseCode` VARCHAR(20) COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`CourseID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=1 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `t_designations` (
+  `DesignationID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `Designation` VARCHAR(75) COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`DesignationID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=1 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `t_examination_types` (
+  `ExaminationTypeID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `ExaminationType` VARCHAR(75) COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`ExaminationTypeID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=1 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `t_examinations` (
+  `ExaminationID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(150) COLLATE utf8_general_ci DEFAULT NULL,
+  `ExaminationTypeID` INTEGER(11) DEFAULT NULL,
+  `Year` INTEGER(11) DEFAULT NULL,
+  `SeminsterID` INTEGER(11) DEFAULT NULL,
+  `CourseID` INTEGER(11) DEFAULT NULL,
+  `InsttructorID` INTEGER(11) DEFAULT NULL,
+  `NumberOfMCQs` INTEGER(11) DEFAULT NULL,
+  `NumberOfShortAnswerQuestions` INTEGER(11) DEFAULT NULL,
+  `Duration` INTEGER(11) DEFAULT NULL,
+  `Active` TINYINT(4) DEFAULT 0 COMMENT '0 - Inactive, 1 - Active',
+  PRIMARY KEY USING BTREE (`ExaminationID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=1 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `t_marital_statuses` (
+  `MaritalStatusID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `MaritalStatus` VARCHAR(75) COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`MaritalStatusID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=1 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `t_semisters` (
+  `SemisterID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `Semister` VARCHAR(75) COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`SemisterID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=4 AVG_ROW_LENGTH=20 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `t_subjects` (
+  `SubjectID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `Subject` VARCHAR(75) COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`SubjectID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=1 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `t_users` (
+  `UserID` INTEGER(11) NOT NULL AUTO_INCREMENT,
+  `Username` VARCHAR(20) COLLATE utf8_general_ci DEFAULT NULL,
+  `Password` VARCHAR(50) COLLATE utf8_general_ci DEFAULT NULL,
+  `UserLevel` INTEGER(11) DEFAULT NULL,
+  `Activated` TINYINT(1) DEFAULT 0 COMMENT '0 - Inactive, 1 - Active',
+  `DesignationID` INTEGER(11) DEFAULT NULL,
+  `FirstName` VARCHAR(50) COLLATE utf8_general_ci DEFAULT NULL,
+  `MiddleName` VARCHAR(50) COLLATE utf8_general_ci DEFAULT NULL,
+  `LastName` VARCHAR(50) COLLATE utf8_general_ci DEFAULT NULL,
+  `Email` VARCHAR(75) COLLATE utf8_general_ci DEFAULT NULL,
+  `RegistrationNumber` VARCHAR(30) COLLATE utf8_general_ci DEFAULT NULL,
+  `NICNumber` VARCHAR(10) COLLATE utf8_general_ci DEFAULT NULL,
+  `Gender` TINYINT(4) DEFAULT 0 COMMENT '0 - Male, 1 - Female',
+  `MaritalStatusID` INTEGER(11) DEFAULT NULL,
+  `DateOfBirth` DATE DEFAULT NULL,
+  `RegisteredOn` DATE DEFAULT NULL,
+  `RegistrationValidTill` DATE DEFAULT NULL,
+  `PhotoPath` VARCHAR(100) COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`UserID`) COMMENT ''
+)ENGINE=MyISAM
+AUTO_INCREMENT=1 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `userlevelpermissions` (
+  `userlevelid` INTEGER(11) NOT NULL,
+  `tablename` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+  `permission` INTEGER(11) NOT NULL,
+  PRIMARY KEY USING BTREE (`userlevelid`, `tablename`) COMMENT ''
+)ENGINE=InnoDB
+AVG_ROW_LENGTH=1365 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
+CREATE TABLE `userlevels` (
+  `userlevelid` INTEGER(11) NOT NULL,
+  `userlevelname` VARCHAR(255) COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY USING BTREE (`userlevelid`) COMMENT ''
+)ENGINE=InnoDB
+AVG_ROW_LENGTH=8192 CHARACTER SET 'utf8' COLLATE 'utf8_general_ci'
+COMMENT=''
+;
+
