@@ -7,7 +7,7 @@ class Examination_types_model extends CI_Model {
     var $DelInd;
 
     function __construct() {
-        parent::_construct();
+        parent::__construct();
     }
 
     public function getExaminationTypeID() {

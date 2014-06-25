@@ -23,8 +23,9 @@ class Designations_controller extends CI_Controller {
         $data['heading'] = "Manage Designaitons";
         $data['designations'] = $designations_service->get_all_designations();
 
-        $partials = array('content' => 'designations/manage_designations_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'designations/manage_designations_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        $this->load->view('designations/manage_designations_view', $data);
     }
 
     function add_new_designation() {

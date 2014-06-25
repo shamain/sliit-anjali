@@ -12,7 +12,7 @@ class Semisters_service extends CI_Model {
         $this->db->select('*');
         $this->db->from('semisters');
         $this->db->where('DelInd', '1');
-        $this->db->order_by("SemisterID", "desc");
+        $this->db->order_by("SemesterID", "desc");
         $query = $this->db->get();
         return $query->result();
     }
@@ -23,12 +23,12 @@ class Semisters_service extends CI_Model {
 
     function delete_semister($semister_id) {
         $data = array('DelInd' => '0');
-        $this->db->where('SemisterID', $semister_id);
+        $this->db->where('SemesterID', $semister_id);
         return $this->db->update('semisters', $data);
     }
 
     function get_semister_by_id($semister_id) {
-        $query = $this->db->get_where('semisters', array('SemisterID' => $semister_id));
+        $query = $this->db->get_where('semisters', array('SemesterID' => $semister_id));
         return $query->row();
     }
 
@@ -39,7 +39,7 @@ class Semisters_service extends CI_Model {
             'Semester' => $semister_model->getSemester()
         );
 
-        $this->db->where('SemisterID', $semister_model->getSemesterID());
+        $this->db->where('SemesterID', $semister_model->getSemesterID());
 
         return $this->db->update('semisters', $data);
     }

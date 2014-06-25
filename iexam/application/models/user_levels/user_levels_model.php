@@ -6,8 +6,7 @@ class User_levels_model extends CI_Model{
     var $UserLevelName;
     
     function __construct() {
-        parent::_construct();
-        
+        parent::__construct();
     }
 
     

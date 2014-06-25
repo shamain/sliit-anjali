@@ -8,7 +8,7 @@ class Courses_model extends CI_Model{
     var $CourseCode;
     
     function __construct() {
-        parent::_construct();
+        parent::__construct();
     }
     
     public function getCourseID() {

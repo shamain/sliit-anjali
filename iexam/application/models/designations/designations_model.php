@@ -7,7 +7,7 @@ class Designations_model extends CI_Model {
     var $DelInd;
 
     function __construct() {
-        parent::_construc();
+        parent::__construct();
     }
 
     public function getDesignationID() {

@@ -15,7 +15,7 @@ class Examinations_model extends CI_Model{
     var $Active;
     
     function __construct() {
-        parent::_contruct();
+        parent::__construct();
     }
     
     public function getExaminationID() {

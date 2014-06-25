@@ -7,7 +7,7 @@ class Course_Students_model extends CI_Model{
     var $StudentID;
     
     function __construct() {
-        parent::_conctruc();
+        parent::__construct();
     }
     
     public function getCourseStudentID() {

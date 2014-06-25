@@ -21,10 +21,11 @@ class Semister_controller extends CI_Controller {
         $semister_service = new Semisters_service();
 
         $data['heading'] = "Manage Semisters";
-        $data['semisters'] = $semister_service->get_all_semisters();
+        $data['semesters'] = $semister_service->get_all_semisters();
 
-        $partials = array('content' => 'semisters/manage_semisters_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'semisters/manage_semisters_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        $this->load->view('semisters/manage_semisters_view', $data);
     }
 
     function add_new_semister() {

@@ -9,7 +9,7 @@ class Course_instructor_model extends CI_Model{
     var $InstructorID;
     
     function __construct() {
-        parent::_construct();
+        parent::__construct();
     }
     
     public function getCcourseInstructor(){

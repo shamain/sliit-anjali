@@ -7,7 +7,7 @@ class User_level_permissions_model extends CI_Model{
     var $Permission;
     
     function __construct() {
-        parent::_construct();
+        parent::__construct();
     }
     
     

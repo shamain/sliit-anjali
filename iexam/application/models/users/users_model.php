@@ -22,7 +22,7 @@ class Users_model extends CI_Model{
     var $PhotoPath;
     
     function __construct() {
-        parent::_consruct();
+        parent::__construct();
     }
     
     public function getUserID() {

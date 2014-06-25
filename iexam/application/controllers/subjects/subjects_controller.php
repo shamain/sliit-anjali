@@ -23,8 +23,9 @@ class Subjects_controller extends CI_Controller {
         $data['heading'] = "Manage Subjects";
         $data['subjects'] = $subjects_service->get_all_subjects();
 
-        $partials = array('content' => 'subjects/manage_subjects_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'subjects/manage_subjects_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        $this->load->view('subjects/manage_subjects_view', $data);
     }
 
     function add_new_subject() {
