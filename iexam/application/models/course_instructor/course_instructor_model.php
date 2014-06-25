@@ -1,6 +1,6 @@
 <?php
 
-class Course_instructor extends CI_Model{
+class Course_instructor_model extends CI_Model{
     
     var $CourseInstructor;
     var $CourseID;

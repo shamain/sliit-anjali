@@ -1,6 +1,6 @@
 <?php
 
-class User_level_permissions extends CI_Model{
+class User_level_permissions_model extends CI_Model{
     
     var $UserLevelID;
     var $TableName;

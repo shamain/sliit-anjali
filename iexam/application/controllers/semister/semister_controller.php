@@ -11,8 +11,8 @@ class Semister_controller extends CI_Controller {
 //        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
 //            redirect(site_url() . '/login/login_controller');
 //        } else {
-            $this->load->model('semisters/semisters_model');
-            $this->load->model('semisters/semisters_service');
+        $this->load->model('semisters/semisters_model');
+        $this->load->model('semisters/semisters_service');
 //        }
     }
 
@@ -27,84 +27,50 @@ class Semister_controller extends CI_Controller {
         $this->template->load('template/main_template', $partials, $data);
     }
 
-    function add_new_project() {
-//        $perm = Access_controllerservice :: checkAccess('ADD_PRIVILEGES');
-//        if ($perm) {
-
-        $project_model = new Project_model();
-        $project_service = new Project_service();
-
-        $project_model->set_project_name($this->input->post('project_name', TRUE));
-        $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
-        $project_model->set_project_start_date($this->input->post('project_start_date', TRUE));
-        $project_model->set_project_end_date($this->input->post('project_end_date', TRUE));
-        $project_model->set_project_description($this->input->post('project_description', TRUE));
-        $project_model->set_company_code($this->session->userdata('EMPLOYEE_COMPANY_CODE'));
-        $project_model->set_del_ind('1');
-        $project_model->set_added_date(date("Y-m-d H:i:s"));
-        $project_model->set_added_by($this->session->userdata('EMPLOYEE_CODE'));
+    function add_new_semister() {
 
 
+        $semister_model = new Semisters_model();
+        $semister_service = new Semisters_service();
 
-        echo $project_service->add_new_project($project_model);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
+        $semister_model->setSemester($this->input->post('semister_name', TRUE));
+        $semister_model->setDelInd('1');
+
+        echo $semister_service->add_new_semister($semister_model);
     }
 
-    function delete_project() {
+    function delete_semister() {
 
-//        $perm = Access_controllerservice :: checkAccess('DELETE_MASTER_PRIVILEGES');
-//        if ($perm) {
-        $project_service = new Project_service();
+        $semister_service = new Semisters_service();
 
-        echo $project_service->delete_project(trim($this->input->post('id', TRUE)));
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
+        echo $semister_service->delete_semister(trim($this->input->post('id', TRUE)));
     }
 
-    function edit_project_view($id) {
-//        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
-//        if ($perm) {
+    function edit_semister_view($id) {
 
-        $project_service = new Project_service();
+        $semister_service = new Semisters_service();
 
 
-        $data['heading'] = "Edit Project";
-        $data['project'] = $project_service->get_project_by_id($id);
+        $data['heading'] = "Edit Semister";
+        $data['semister'] = $semister_service->get_semister_by_id($id);
 
 
-        $partials = array('content' => 'projects/edit_project_view');
+        $partials = array('content' => 'semisters/edit_semisters_view');
         $this->template->load('template/main_template', $partials, $data);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
     }
 
-    function edit_project() {
-
-//        $perm = Access_controllerservice :: checkAccess('EDIT_PROJECTS');
-//        if ($perm) {
-
-        $project_model = new Project_model();
-        $project_service = new Project_service();
-
-        $project_model->set_project_name($this->input->post('project_name', TRUE));
-        $project_model->set_project_vendor($this->input->post('project_vendor', TRUE));
-        $project_model->set_project_start_date($this->input->post('project_start_date', TRUE));
-        $project_model->set_project_end_date($this->input->post('project_end_date', TRUE));
-        $project_model->set_project_description($this->input->post('project_description', TRUE));
-
-        $project_model->set_project_id($this->input->post('project_id', TRUE));
+    function edit_semister() {
 
 
+        $semister_model = new Semisters_model();
+        $semister_service = new Semisters_service();
+        
+        $semister_model->setSemester($this->input->post('semister_name', TRUE));
+        $semister_model->setDelInd('1');
 
-        echo $project_service->update_project($project_model);
-//        } else {
-//            $this->template->load('template/access_denied_page');
-//        }
+        $semister_model->setSemesterID($this->input->post('semister_id', TRUE));
+
+        echo $semister_service->update_semister($semister_model);
     }
-
 
 }

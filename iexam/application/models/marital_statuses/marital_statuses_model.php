@@ -1,6 +1,6 @@
 <?php
 
-class Marital_statuses extends CI_Model {
+class Marital_statuses_model extends CI_Model {
 
     var $MaritalStatusID;
     var $MaritalStatus;

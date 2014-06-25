@@ -1,6 +1,6 @@
 <?php
 
-class Subjects extends CI_Model {
+class Subjects_model extends CI_Model {
 
     var $SubjectID;
     var $Subject;

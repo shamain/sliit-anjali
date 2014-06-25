@@ -1,6 +1,6 @@
 <?php
 
-class Designations extends CI_Model {
+class Designations_model extends CI_Model {
 
     var $DesignationID;
     var $Designation;

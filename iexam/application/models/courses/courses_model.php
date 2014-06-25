@@ -1,6 +1,6 @@
 <?php
 
-class Courses extends CI_Model{
+class Courses_model extends CI_Model{
     
     var $CourseID;
     var $SubjectID;

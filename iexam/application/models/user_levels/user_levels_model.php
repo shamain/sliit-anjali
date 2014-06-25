@@ -1,6 +1,6 @@
 <?php
 
-class User_levels extends CI_Model{
+class User_levels_model extends CI_Model{
     
     var $UserLevelID;
     var $UserLevelName;
