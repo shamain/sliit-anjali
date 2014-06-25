@@ -66,7 +66,6 @@ class Semister_controller extends CI_Controller {
         $semister_service = new Semisters_service();
         
         $semister_model->setSemester($this->input->post('semister_name', TRUE));
-        $semister_model->setDelInd('1');
 
         $semister_model->setSemesterID($this->input->post('semister_id', TRUE));
 

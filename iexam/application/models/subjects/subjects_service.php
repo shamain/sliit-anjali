@@ -33,7 +33,7 @@ class Subjects_service extends CI_Model {
     }
 
   
-    function update_project($subject_model) {
+    function update_subject($subject_model) {
 
         $data = array(
             'Subject' => $subject_model->getSubject()
