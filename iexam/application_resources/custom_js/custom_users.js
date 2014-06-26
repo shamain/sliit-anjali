@@ -70,3 +70,44 @@ function delete_userlevel(id) {
     }
 }
 
+/////////////////////Users///////////////////////////////////////
+
+function usersTable() {
+    $('#user_table').dataTable({
+        "aaSorting": [[0, "asc"]],
+        "sDom": "<'box-content'<'col-sm-6'f><'col-sm-6 text-right'l><'clearfix'>>rt<'box-content'<'col-sm-6'i><'col-sm-6 text-right'p><'clearfix'>>",
+        "sPaginationType": "bootstrap",
+        "oLanguage": {
+            "sSearch": "",
+            "sLengthMenu": '_MENU_'
+        }
+    });
+
+}
+
+function usersAddForm() {
+    $('#add_user_form').bootstrapValidator({
+        message: 'This value is not valid',
+        fields: {
+            user_level_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            }
+
+        }, submitHandler: function(form) {
+            $.post(site_url + '/user_levels/user_levels_controller/add_new_user_level', $('#add_user_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#add_user_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The User  has been added.</div>');
+                    manage_instructors.reset();
+                    location.reload();
+                } else {
+                    $("#add_user_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The User  has failed.</div>');
+                }
+            });
+        }
+    });
+}

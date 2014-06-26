@@ -260,7 +260,7 @@
 
 
                 </div>
-                <div id="add_subject_msg" class="form-row"> </div>
+                <div id="add_user_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -279,7 +279,7 @@
 <script>
 
                                         function AllTables() {
-                                            subjectTable();
+                                            usersTable();
                                             LoadSelect2Script(MakeSelect2);
                                         }
                                         function MakeSelect2() {
@@ -291,7 +291,7 @@
                                         $(document).ready(function() {
                                             // Load Datatables and run plugin on tables 
                                             LoadDataTablesScripts(AllTables);
-                                            LoadBootstrapValidatorScript(subjectAddForm);
+                                            LoadBootstrapValidatorScript(usersAddForm);
                                         });
 
 </script>
