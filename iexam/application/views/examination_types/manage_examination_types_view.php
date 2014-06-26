@@ -3,26 +3,17 @@
         <div class="box">
             <div class="box-header">
                 <div class="box-name">
-                    <i class="fa fa-linux"></i>
+                    <i class="fa fa-bookmark-o"></i>
                     <span>Examination Types</span>
                 </div>
-                <div class="box-icons">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                    <a class="expand-link">
-                        <i class="fa fa-expand"></i>
-                    </a>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
+               
                 <div class="no-move"></div>
             </div>
-            <button class="btn btn-success btn-app-sm" type="button" id="add_exam_type_btn" data-toggle="modal" data-target="#add_exam_type_modal">
-                <i class="fa fa-plus"></i>
+            
+            <div class="box-content">
+                <button class="btn btn-success" type="button" id="add_exam_type_btn" data-toggle="modal" data-target="#add_exam_type_modal" style="margin-bottom: 10px;">
+               Add Exam Type
             </button>
-            <div class="box-content no-padding">
                 <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="exam_type_table">
                     <thead>
                         <tr>
@@ -38,7 +29,7 @@
                             ?> 
                             <tr id="examtype_<?php echo $examination_type->ExaminationTypeID; ?>">
                                 <td><?php echo++$i; ?></td>
-                                <td><?php echo $examination_type->ExaminaionType; ?></td>
+                                <td><?php echo $examination_type->ExaminationType; ?></td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $examination_type->ExaminationTypeID; ?>" title="Edit this Exam Type">
                                         <i class="fa fa-pencil"></i>
@@ -64,10 +55,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="add_exam_type_form" name="add_exam_type_form" class="form-horizontal bootstrap-validator-form">
-                <div class="modal-header tiles green">
+                <div class="modal-header tiles green text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
-                    <i class="fa fa-desktop fa-4x"></i>
+                    <i class="fa fa-bookmark-o fa-4x"></i>
                     <h4 id="add_exam_type_modalLabel" class="semi-bold text-white">It's a new exam type</h4>
                     <p class="no-margin text-white">Include exam type details here.</p>
                     <br>

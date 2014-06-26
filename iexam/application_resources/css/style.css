@@ -75,7 +75,7 @@ a.show-sidebar:hover {
 }
 #content {
   position: relative;
-  z-index: 10;
+
   background: #ebebeb;
   box-shadow: 0 0 6px #131313;
   padding-bottom: 3000px !important;
@@ -752,18 +752,7 @@ td.beauty-hover {
   font-size: 12px;
   font-weight: bold;
   text-align: center;
-  background-color: #a2a2a2;
-  background: #a2a2a2 -moz-linear-gradient(top, rgba(255,255,255,0.6), rgba(255,255,255,0));
-  background: #a2a2a2 -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.6)), to(rgba(255,255,255,0)));
-  line-height: 24px;
-  margin: 0 0 10px 0;
-  padding: 0 10px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  outline: none !important;
+ 
 }
 .btn-label-left, .btn-label-right {
   padding: 0 10px;
@@ -2060,7 +2049,7 @@ td.beauty-hover {
   height: 100%;
   left: 0;
   background: #ebebeb;
-  z-index: 2000;
+ 
 }
 .devoops-getdata {
   position: absolute;
@@ -2357,4 +2346,8 @@ td.beauty-hover {
   #dashboard_links .nav-pills > li.active > a:before {
     display: none;
   }
+}
+
+.brdr{
+    outline: 1px solid rgb(227, 227, 227);
 }
