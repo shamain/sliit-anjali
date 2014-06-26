@@ -91,7 +91,7 @@
                                                     <img src="<?php echo base_url(); ?>uploads/user_avatar/<?php echo $this->session->userdata('USER_PROPIC'); ?>" class="img-rounded" alt="avatar" />
 
                                                 <?php } ?> 
-                                                <img src="img/avatar.jpg" class="img-rounded" alt="avatar" />
+                        
                                             </div>
                                             <i class="fa fa-angle-down pull-right"></i>
                                             <div class="user-mini pull-right">
