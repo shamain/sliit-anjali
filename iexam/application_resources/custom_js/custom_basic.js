@@ -47,6 +47,35 @@ function semisterAddForm() {
 }
 
 
+
+function semisterEditForm() {
+    $('#edit_semister_form').bootstrapValidator({
+        message: 'This value is not valid',
+        fields: {
+            semister_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            }
+
+        }, submitHandler: function(form) {
+            $.post(site_url + '/semister/semister_controller/edit_semister', $('#edit_semister_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_semister_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Semester updated successfully.</div>');
+                    edit_semister_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_semister_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Semester has failed.</div>');
+                }
+            });
+        }
+    });
+}
+
+
 //delete Semester
 function delete_semester(id) {
 
@@ -317,7 +346,7 @@ function LoginForm() {
                         x.fadeOut('slow');
                     } else {
 
-                        $('#msg').html('<span class="input-notification error png_bg">Invalid login details...</span>');
+                        $('#msg').html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Invalid login details...</div>');
                     }
 
                 }
@@ -325,3 +354,10 @@ function LoginForm() {
         }
     });
 }
+
+
+
+$(document).ready(function() {
+    LoadBootstrapValidatorScript(semisterEditForm);
+});
+

@@ -32,7 +32,7 @@
                                 <td><?php echo++$i; ?></td>
                                 <td><?php echo $semester->Semester; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $semester->SemesterID; ?>" title="Edit this Semester">
+                                    <a href="<?php echo site_url(); ?>/semister/semister_controller/edit_semister_view/<?php echo $semester->SemesterID; ?>" title="Edit this Semester">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Semester" onclick="delete_semester(<?php echo $semester->SemesterID; ?>)">
