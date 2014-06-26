@@ -297,37 +297,31 @@ function LoginForm() {
                 }
             }
 
-        }
-    });
-}
+        }, submitHandler: function(form) {
+            var login_username = $('#txtusername').val();
+            var login_password = $('#txtpassword').val();
 
-//login submit button actions
-function login() {
-
-    var login_username = $('#txtusername').val();
-    var login_password = $('#txtpassword').val();
-
-    if ($('#login_form').valid()) {
 
 //        var x = $('.load-anim').show().delay(5000);
 
-        $.ajax({
-            type: "POST",
-            url: site_url + "/login/login_controller/authenticate_user",
-            data: "login_username=" + login_username + "&login_password=" + login_password,
-            async: false,
-            success: function(msg) {
-                $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
-                if (msg == 1) {
-                    $('#login_msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
-                    setTimeout("location.href = site_url+'/login/login_controller/';", 100);
-                    x.fadeOut('slow');
-                } else {
+            $.ajax({
+                type: "POST",
+                url: site_url + "/login/login_controller/authenticate_user",
+                data: "login_username=" + login_username + "&login_password=" + login_password,
+                async: false,
+                success: function(msg) {
+                    $('#msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
+                    if (msg == 1) {
+                        $('#msg').html('<span class="response-msg notice ui-corner-all">validating...</span>');
+                        setTimeout("location.href = site_url+'/login/login_controller/';", 100);
+                        x.fadeOut('slow');
+                    } else {
 
-                    $('#login_msg').html('<span class="input-notification error png_bg">Invalid login details...</span>');
+                        $('#msg').html('<span class="input-notification error png_bg">Invalid login details...</span>');
+                    }
+
                 }
-
-            }
-        });
-    }
+            });
+        }
+    });
 }

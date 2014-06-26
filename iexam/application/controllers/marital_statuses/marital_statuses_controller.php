@@ -23,8 +23,9 @@ class Marital_statuses_controller extends CI_Controller {
         $data['heading'] = "Manage Marital Statuses";
         $data['marital_statuses'] = $marital_statuses_service->get_all_marital_statuses();
 
-        $partials = array('content' => 'marital_statuses/manage_marital_statuses_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'marital_statuses/manage_marital_statuses_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        $this->load->view('marital_statuses/manage_marital_statuses_view', $data);
     }
 
     function add_new_marital_statuses() {

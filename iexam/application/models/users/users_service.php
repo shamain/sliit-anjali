@@ -62,7 +62,7 @@ class Users_service extends CI_Model {
 
     function authenticate_user_with_password($users_model) {
 
-        $data = array('Username' => $users_model->getUsername(), 'Password' => $users_model->getPassword(), 'del_ind' => '1');
+        $data = array('Username' => $users_model->getUsername(), 'Password' => $users_model->getPassword(), 'DelInd' => '1','Activated' => 1);
 
         $this->db->select('*');
         $this->db->from('users');

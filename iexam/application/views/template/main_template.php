@@ -85,7 +85,7 @@
                                         <a href="#" class="dropdown-toggle account" data-toggle="dropdown">
                                             <div class="avatar">
                                                 <?php if ($this->session->userdata('USER_PROPIC') == '') { ?>
-                                                    <img src="<?php echo base_url(); ?>uploads/user_avatar/avatar_default.jpg" class="img-rounded" alt="avatar" />
+                                                    <img src="<?php echo base_url(); ?>uploads/user_avatar/avatar_default.png" class="img-rounded" alt="avatar" />
 
                                                 <?php } else { ?>
                                                     <img src="<?php echo base_url(); ?>uploads/user_avatar/<?php echo $this->session->userdata('USER_PROPIC'); ?>" class="img-rounded" alt="avatar" />
@@ -246,7 +246,7 @@
 
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_basic.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_exam.js"></script>
-        <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_courses.js"></script>
+        <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_course.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_users.js"></script>
     </body>
 </html>

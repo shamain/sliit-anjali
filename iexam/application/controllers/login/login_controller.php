@@ -23,8 +23,8 @@ class Login_controller extends CI_Controller {
             $this->template->load('template/main_template');
         } else {
 
-//            $this->template->load('template/login');
-            $this->template->load('template/main_template');
+            $this->template->load('template/login');
+//            $this->template->load('template/main_template');
         }
     }
 

@@ -19,7 +19,7 @@
     <body>
         <div class="container-fluid">
             <div id="page-login" class="row">
-                <form id="login_form" name="login_form" class="form-horizontal bootstrap-validator-form">
+                <form id="login_form" name="login_form" class="bootstrap-validator-form">
                     <div class="col-xs-12 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
                         <div class="box">
                             <div class="box-content">
@@ -35,7 +35,9 @@
                                     <input type="password" class="form-control" name="txtpassword" id="txtpassword" />
                                 </div>
                                 <div class="text-center">
-                                    <a onclick="login()" class="btn btn-primary">Sign in</a>
+                                    <input type="submit" class="btn btn-primary" value="Sign in" />
+                                </div>
+                                <div id="msg" class="form-row"> 
                                 </div>
                             </div>
                         </div>
@@ -46,6 +48,28 @@
     </body>
 </html>
 
+<script type="text/javascript">
+
+                                        var js_base_url = "<?php echo base_url(); ?>";
+                                        var js_site_url = "<?php echo site_url(); ?>";
+
+                                        //alert(js_url_path);
+</script>
+
+<script src="<?php echo base_url(); ?>application_resources/plugins/jquery/jquery-2.1.0.min.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/plugins/justified-gallery/jquery.justifiedgallery.min.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/plugins/tinymce/tinymce.min.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/plugins/tinymce/jquery.tinymce.min.js"></script>
+<!-- All functions for this theme + document.ready processing -->
+<script src="<?php echo base_url(); ?>application_resources/js/devoops.js"></script>
+
+<script src="<?php echo base_url(); ?>application_resources/custom_js/custom_basic.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/custom_js/custom_exam.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/custom_js/custom_course.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/custom_js/custom_users.js"></script>
 <script>
 
     $(document).ready(function() {
