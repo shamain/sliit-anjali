@@ -84,12 +84,19 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle account" data-toggle="dropdown">
                                             <div class="avatar">
+                                                <?php if ($this->session->userdata('USER_PROPIC') == '') { ?>
+                                                    <img src="<?php echo base_url(); ?>uploads/user_avatar/avatar_default.jpg" class="img-rounded" alt="avatar" />
+
+                                                <?php } else { ?>
+                                                    <img src="<?php echo base_url(); ?>uploads/user_avatar/<?php echo $this->session->userdata('USER_PROPIC'); ?>" class="img-rounded" alt="avatar" />
+
+                                                <?php } ?> 
                                                 <img src="img/avatar.jpg" class="img-rounded" alt="avatar" />
                                             </div>
                                             <i class="fa fa-angle-down pull-right"></i>
                                             <div class="user-mini pull-right">
                                                 <span class="welcome">Welcome,</span>
-                                                <span>Jane Devoops</span>
+                                                <span><?php echo ucfirst($this->session->userdata('USER_FIRST_NAME') . ' ' . $this->session->userdata('USER_MIDDLE_NAME') . ' ' . $this->session->userdata('USER_LAST_NAME')); ?></span>
                                             </div>
                                         </a>
                                         <ul class="dropdown-menu">
@@ -157,12 +164,12 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/semister/semister_controller/manage_semisters">Manage Semesters</a></li>
-                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/subjects/subjects_controller/manage_subjects">Manage Subjects</a></li>
-                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/designations/designations_controller/manage_designations">Manage Designations</a></li>
-                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/marital_statuses/marital_statuses_controller/manage_marital_statuses">Manage Marital Statuses</a></li>
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/subjects/subjects_controller/manage_subjects">Manage Subjects</a></li>
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/designations/designations_controller/manage_designations">Manage Designations</a></li>
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/marital_statuses/marital_statuses_controller/manage_marital_statuses">Manage Marital Statuses</a></li>
                             </ul>
                         </li>
-                        
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-certificate"></i>
@@ -170,11 +177,11 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/examination_types/examination_types_controller/manage_examination_types">Manage Exam Types</a></li>
-                                
+
                             </ul>
                         </li>
 
-                        
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-user"></i>
@@ -183,11 +190,11 @@
                             <ul class="dropdown-menu">
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/users/users_controller/manage_users">Manage Users</a></li>
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/user_levels/user_levels_controller/manage_user_levels">Manage User Levels</a></li>
-                                
+
                             </ul>
                         </li>
-                        
-                        
+
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-briefcase"></i>
@@ -195,7 +202,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/courses/courses_controller/manage_courses">Manage Courses</a></li>
-                                
+
                             </ul>
                         </li>
 
@@ -236,7 +243,7 @@
         <script src="<?php echo base_url(); ?>application_resources/plugins/tinymce/jquery.tinymce.min.js"></script>
         <!-- All functions for this theme + document.ready processing -->
         <script src="<?php echo base_url(); ?>application_resources/js/devoops.js"></script>
-        
+
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_basic.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_exam.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_courses.js"></script>
