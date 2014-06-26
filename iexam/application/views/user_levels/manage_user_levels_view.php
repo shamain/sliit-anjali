@@ -64,7 +64,7 @@
 <div class="modal fade" id="add_user_level_modal" tabindex="-1" role="dialog" aria-labelledby="add_user_level_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="add_user_level_form" name="add_user_level_form" class="form-horizontal bootstrap-validator-form">
+            <form id="add_userlevel_form" name="add_userlevel_form" class="form-horizontal bootstrap-validator-form">
                 <div class="modal-header tiles green">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>

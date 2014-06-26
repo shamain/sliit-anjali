@@ -149,9 +149,11 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">User Level</label>
                             <div class="col-sm-5">
+
                                 <select id="user_level" name="user_level" >
-                                    <?php foreach ($subjects as $subject) { ?>
-                                        <option value="<?php echo $subject->SubjectID; ?>"> <?php echo $subject->Subject; ?> </option>
+                                    <option>Please Select</option>
+                                    <?php foreach ($user_levels as $user_level) { ?>
+                                        <option value="<?php echo $user_level->userlevelid; ?>"> <?php echo $user_level->userlevelname; ?> </option>
                                     <?php } ?>
 
                                 </select>
@@ -165,6 +167,7 @@
                             <label class="col-sm-3 control-label">Designation</label>
                             <div class="col-sm-5">
                                 <select id="designation_id" name="designation_id" >
+                                    <option>Please Select</option>
                                     <?php foreach ($designations as $designation) { ?>
                                         <option value="<?php echo $designation->DesignationID; ?>"> <?php echo $designation->Designation; ?> </option>
                                     <?php } ?>
@@ -179,7 +182,9 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Marital Status</label>
                             <div class="col-sm-5">
+
                                 <select id="marital_status_id" name="marital_status_id" >
+                                    <option>Please Select</option>
                                     <?php foreach ($marital_statuses as $marital_status) { ?>
                                         <option value="<?php echo $marital_status->MaritalStatusID; ?>"> <?php echo $marital_status->MaritalStatus; ?> </option>
                                     <?php } ?>

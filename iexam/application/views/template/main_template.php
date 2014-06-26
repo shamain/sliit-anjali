@@ -185,6 +185,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/courses/courses_controller/manage_courses">Manage Courses</a></li>
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/courses/courses_controller/manage_courses">Manage Course Instructor</a></li>
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/courses/courses_controller/manage_courses">Manage Course Students</a></li>
 
                             </ul>
                         </li>
