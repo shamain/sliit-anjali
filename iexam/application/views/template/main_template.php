@@ -159,6 +159,18 @@
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/semister/semister_controller/manage_semisters">Manage Semesters</a></li>
                                  <li><a class="ajax-link" href="<?php echo site_url(); ?>/subjects/subjects_controller/manage_subjects">Manage Subjects</a></li>
                                  <li><a class="ajax-link" href="<?php echo site_url(); ?>/designations/designations_controller/manage_designations">Manage Designations</a></li>
+                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/marital_statuses/marital_statuses_controller/manage_marital_statuses">Manage Marital Statuses</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span class="hidden-xs">Examinations</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/examination_types/examination_types_controller/manage_examination_types">Manage Exam Types</a></li>
+                                
                             </ul>
                         </li>
 
@@ -204,5 +216,6 @@
         <script src="<?php echo base_url(); ?>application_resources/js/devoops.js"></script>
         
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_basic.js"></script>
+        <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_exam.js"></script>
     </body>
 </html>

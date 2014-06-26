@@ -2,29 +2,39 @@
 
 class User_levels_model extends CI_Model{
     
-    var $UserLevelID;
-    var $UserLevelName;
+    var $userlevelid;
+    var $userlevelname;
+    var $DelInd;
     
     function __construct() {
         parent::__construct();
     }
 
     
-    public function getUserLevelID() {
-        return $this->UserLevelID;
+    public function getUserlevelid() {
+        return $this->userlevelid;
     }
 
-    public function getUserLevelName() {
-        return $this->UserLevelName;
+    public function getUserlevelname() {
+        return $this->userlevelname;
     }
 
-    public function setUserLevelID($UserLevelID) {
-        $this->UserLevelID = $UserLevelID;
+    public function getDelInd() {
+        return $this->DelInd;
     }
 
-    public function setUserLevelName($UserLevelName) {
-        $this->UserLevelName = $UserLevelName;
+    public function setUserlevelid($userlevelid) {
+        $this->userlevelid = $userlevelid;
     }
+
+    public function setUserlevelname($userlevelname) {
+        $this->userlevelname = $userlevelname;
+    }
+
+    public function setDelInd($DelInd) {
+        $this->DelInd = $DelInd;
+    }
+
 
 
 }

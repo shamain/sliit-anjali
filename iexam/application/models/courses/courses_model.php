@@ -6,6 +6,7 @@ class Courses_model extends CI_Model{
     var $SubjectID;
     var $Course;
     var $CourseCode;
+    var $DelInd;
     
     function __construct() {
         parent::__construct();
@@ -27,6 +28,10 @@ class Courses_model extends CI_Model{
         return $this->CourseCode;
     }
 
+    public function getDelInd() {
+        return $this->DelInd;
+    }
+
     public function setCourseID($CourseID) {
         $this->CourseID = $CourseID;
     }
@@ -42,6 +47,11 @@ class Courses_model extends CI_Model{
     public function setCourseCode($CourseCode) {
         $this->CourseCode = $CourseCode;
     }
+
+    public function setDelInd($DelInd) {
+        $this->DelInd = $DelInd;
+    }
+
 
 
 }

@@ -199,3 +199,80 @@ function delete_designation(id) {
         });
     }
 }
+
+
+//////////////////////////////////Marital Status////////////////////////////////////////////
+
+function maritalstatusTable() {
+    $('#marital_status_table').dataTable({
+        "aaSorting": [[0, "asc"]],
+        "sDom": "<'box-content'<'col-sm-6'f><'col-sm-6 text-right'l><'clearfix'>>rt<'box-content'<'col-sm-6'i><'col-sm-6 text-right'p><'clearfix'>>",
+        "sPaginationType": "bootstrap",
+        "oLanguage": {
+            "sSearch": "",
+            "sLengthMenu": '_MENU_'
+        }
+    });
+
+}
+
+
+
+function maritalstatusAddForm() {
+    $('#add_marital_status_form').bootstrapValidator({
+        message: 'This value is not valid',
+        fields: {
+            status_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            }
+
+        }, submitHandler: function(form) {
+            $.post(site_url + '/marital_statuses/marital_statuses_controller/add_new_marital_statuses', $('#add_marital_status_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#add_marital_status_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Marital Status has been added.</div>');
+                    add_marital_status_form.reset();
+                    location.reload();
+                } else {
+                    $("#add_marital_status_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Marital Status has failed.</div>');
+                }
+            });
+        }
+    });
+}
+
+
+
+
+//delete Marital Status
+function delete_maritalstatus(id) {
+
+    if (confirm('Are you sure want to delete this Marital Status ?')) {
+
+        $.ajax({
+            type: "POST",
+            url: site_url + '/marital_statuses/marital_statuses_controller/delete_marital_status',
+            data: "id=" + id,
+            success: function(msg) {
+                //alert(msg);
+                if (msg == 1) {
+                    //document.getElementById(trid).style.display='none';
+                    $('#maritalstatus_' + id).hide();
+                }
+                else if (msg == 2) {
+                    alert('Cannot be deleted ');
+                }
+            }
+        });
+    }
+}
+
+
+
+
+
+
