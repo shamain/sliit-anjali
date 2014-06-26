@@ -27,22 +27,23 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Course Code</th>
-                            <th>Course</th>
-                            <th>Subject</th>
-                            <th>Options</th>
+                            <th>Course Name</th>
+                            <th>Year</th>
+                            <th>Semester</th>
+                            <th>Instructor</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $i = 0;
-                        foreach ($courses as $course) {
+                        foreach ($instructors as $instructor) {
                             ?> 
-                            <tr id="course_<?php echo $course->CourseID; ?>">
+                            <tr id="course_<?php echo $instructor->InstructorID; ?>">
                                 <td><?php echo ++$i; ?></td>
-                                <td><?php echo $course->CourseCode; ?></td>
-                                <td><?php echo $course->Course; ?></td>
-                                <td><?php echo $course->Subject; ?></td>
+                                <td><?php echo $instructor->Course; ?></td>
+                                <td><?php echo $instructor->Year; ?></td>
+                                <td><?php echo $instructor->Semester; ?></td>
+                                  <td><?php echo $instructor->Instructor; ?></td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $course->CourseID; ?>" title="Edit this Course">
                                         <i class="fa fa-pencil"></i>
@@ -79,19 +80,18 @@
                 <div class="modal-body">
                     <fieldset>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Course Code</label>
-                            <div class="col-sm-5">
-                                <input id="course_code" class="form-control" type="text" name="course_code" >  
-                            </div>
-                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <div class="form-group">
                             <label class="col-sm-3 control-label">Course</label>
                             <div class="col-sm-5">
-                                <input id="course_name" class="form-control" type="text" name="course_name" >  
+                                  <select id="course_id" name="course_id" class="form-control">
+                                    <?php foreach ($courses as $course) { ?>
+                                        <option value="<?php echo $course->CourseID; ?>"> <?php echo $course->Course; ?> </option>
+                                    <?php } ?>
+
+                                </select>
+
+                                
+                                
+                                 
                             </div>
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
@@ -99,11 +99,21 @@
 
                     <fieldset>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Subject</label>
+                            <label class="col-sm-3 control-label">Year</label>
                             <div class="col-sm-5">
-                                <select id="subject_id" name="subject_id" class="form-control">
-                                    <?php foreach ($subjects as $subject) { ?>
-                                        <option value="<?php echo $subject->SubjectID; ?>"> <?php echo $subject->Subject; ?> </option>
+                                <input id="year" class="form-control" type="text" name="year" >  
+                            </div>
+                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Semester</label>
+                            <div class="col-sm-5">
+                                <select id="semester_id" name="semester_id" class="form-control">
+                                    <?php foreach ($semesters as $semester) { ?>
+                                        <option value="<?php echo $semester->SemesterID; ?>"> <?php echo $semester->Semester; ?> </option>
                                     <?php } ?>
 
                                 </select>
@@ -116,9 +126,14 @@
 
                     <fieldset>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Course Code</label>
+                            <label class="col-sm-3 control-label">Instructor</label>
                             <div class="col-sm-5">
-                                <input id="course_code" class="form-control" type="text" name="course_code" >  
+                                <select id="instructor_id" name="instructor_id" class="form-control">
+                                    <?php foreach ($instructors as $instructor) { ?>
+                                        <option value="<?php echo $instructor->InstructorID; ?>"> <?php echo $instructor->Instructor; ?> </option>
+                                    <?php } ?>
+
+                                </select>
                             </div>
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
