@@ -3,26 +3,17 @@
         <div class="box">
             <div class="box-header">
                 <div class="box-name">
-                    <i class="fa fa-linux"></i>
+                    <i class="fa fa-plus-circle"></i>
                     <span>Marital Status</span>
                 </div>
-                <div class="box-icons">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                    <a class="expand-link">
-                        <i class="fa fa-expand"></i>
-                    </a>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-                <div class="no-move"></div>
+             
             </div>
-            <button class="btn btn-success btn-app-sm" type="button" id="add_marital_status_btn" data-toggle="modal" data-target="#add_marital_status_modal">
-                <i class="fa fa-plus"></i>
+             <div class="box-content">
+            <button class="btn btn-success" type="button" id="add_marital_status_btn" data-toggle="modal" data-target="#add_marital_status_modal">
+               Add Marital Status
             </button>
-            <div class="box-content no-padding">
+             </div>
+            <div class="box-content">
                 <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="marital_status_table">
                     <thead>
                         <tr>
@@ -64,10 +55,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="add_marital_status_form" name="add_marital_status_form" class="form-horizontal bootstrap-validator-form">
-                <div class="modal-header tiles green">
+                <div class="modal-header tiles green text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
-                    <i class="fa fa-desktop fa-4x"></i>
+                    <i class="fa fa-plus-circle fa-4x"></i>
                     <h4 id="add_marital_status_modalLabel" class="semi-bold text-white">It's a new marital status</h4>
                     <p class="no-margin text-white">Include marital status details here.</p>
                     <br>

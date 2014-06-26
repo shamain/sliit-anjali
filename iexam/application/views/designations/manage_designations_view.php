@@ -3,26 +3,17 @@
         <div class="box">
             <div class="box-header">
                 <div class="box-name">
-                    <i class="fa fa-"></i>
+                    <i class="fa fa-users"></i>
                     <span>Designations</span>
                 </div>
-                <div class="box-icons">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                    <a class="expand-link">
-                        <i class="fa fa-expand"></i>
-                    </a>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-                <div class="no-move"></div>
+              
             </div>
-            <button class="btn btn-success btn-app-sm" type="button" id="add_designation_btn" data-toggle="modal" data-target="#add_designation_modal">
-                <i class="fa fa-plus"></i>
+            <div class="box-content">
+            <button class="btn btn-success" type="button" id="add_designation_btn" data-toggle="modal" data-target="#add_designation_modal">
+               Add Designation Type
             </button>
-            <div class="box-content no-padding">
+            </div>
+            <div class="box-content">
                 <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="designation_table">
                     <thead>
                         <tr>
@@ -64,10 +55,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="add_designation_form" name="add_designation_form" class="form-horizontal bootstrap-validator-form">
-                <div class="modal-header tiles green">
+                <div class="modal-header tiles green text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
-                    <i class="fa fa-desktop fa-4x"></i>
+                    <i class="fa fa-users fa-4x"></i>
                     <h4 id="add_designation_modalLabel" class="semi-bold text-white">It's a new designation</h4>
                     <p class="no-margin text-white">Include designation details here.</p>
                     <br>
