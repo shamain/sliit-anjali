@@ -77,15 +77,7 @@
                     <br>
                 </div>
                 <div class="modal-body">
-                    <fieldset>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Course Code</label>
-                            <div class="col-sm-5">
-                                <input id="course_code" class="form-control" type="text" name="course_code" >  
-                            </div>
-                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
-                        </div>
-                    </fieldset>
+
 
                     <fieldset>
                         <div class="form-group">
@@ -101,7 +93,8 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Subject</label>
                             <div class="col-sm-5">
-                                <select id="subject_id" name="subject_id" class="form-control">
+                                <select id="subject_id" name="subject_id" >
+                                    <option>Please Select</option>
                                     <?php foreach ($subjects as $subject) { ?>
                                         <option value="<?php echo $subject->SubjectID; ?>"> <?php echo $subject->Subject; ?> </option>
                                     <?php } ?>
