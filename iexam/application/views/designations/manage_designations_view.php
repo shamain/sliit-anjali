@@ -3,7 +3,7 @@
         <div class="box">
             <div class="box-header">
                 <div class="box-name">
-                    <i class="fa fa-linux"></i>
+                    <i class="fa fa-"></i>
                     <span>Designations</span>
                 </div>
                 <div class="box-icons">

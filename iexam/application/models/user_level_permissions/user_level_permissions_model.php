@@ -1,40 +1,46 @@
 <?php
 
-class User_level_permissions_model extends CI_Model{
-    
-    var $UserLevelID;
-    var $TableName;
-    var $Permission;
-    
+class User_level_permissions_model extends CI_Model {
+
+    var $userlevelid;
+    var $tablename;
+    var $permission;
+    var $DelInd;
+
     function __construct() {
         parent::__construct();
     }
-    
-    
-    public function getUserLevelID() {
-        return $this->UserLevelID;
+
+    public function getUserlevelid() {
+        return $this->userlevelid;
     }
 
-    public function getTableName() {
-        return $this->TableName;
+    public function getTablename() {
+        return $this->tablename;
     }
 
     public function getPermission() {
-        return $this->Permission;
+        return $this->permission;
     }
 
-    public function setUserLevelID($UserLevelID) {
-        $this->UserLevelID = $UserLevelID;
+    public function getDelInd() {
+        return $this->DelInd;
     }
 
-    public function setTableName($TableName) {
-        $this->TableName = $TableName;
+    public function setUserlevelid($userlevelid) {
+        $this->userlevelid = $userlevelid;
     }
 
-    public function setPermission($Permission) {
-        $this->Permission = $Permission;
+    public function setTablename($tablename) {
+        $this->tablename = $tablename;
     }
 
+    public function setPermission($permission) {
+        $this->permission = $permission;
+    }
 
+    public function setDelInd($DelInd) {
+        $this->DelInd = $DelInd;
+    }
 
 }

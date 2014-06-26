@@ -1,7 +1,7 @@
 <?php
 
-class Users_model extends CI_Model{
-    
+class Users_model extends CI_Model {
+
     var $UserID;
     var $Username;
     var $Password;
@@ -20,11 +20,12 @@ class Users_model extends CI_Model{
     var $RegisteredOn;
     var $RegistrationValidTill;
     var $PhotoPath;
-    
+    var $DelInd;
+
     function __construct() {
         parent::__construct();
     }
-    
+
     public function getUserID() {
         return $this->UserID;
     }
@@ -95,6 +96,10 @@ class Users_model extends CI_Model{
 
     public function getPhotoPath() {
         return $this->PhotoPath;
+    }
+
+    public function getDelInd() {
+        return $this->DelInd;
     }
 
     public function setUserID($UserID) {
@@ -169,5 +174,8 @@ class Users_model extends CI_Model{
         $this->PhotoPath = $PhotoPath;
     }
 
+    public function setDelInd($DelInd) {
+        $this->DelInd = $DelInd;
+    }
 
 }

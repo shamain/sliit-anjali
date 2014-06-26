@@ -152,7 +152,7 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle">
-                                <i class="fa fa-bar-chart-o"></i>
+                                <i class="fa fa-cog"></i>
                                 <span class="hidden-xs">Basic Settings</span>
                             </a>
                             <ul class="dropdown-menu">
@@ -165,7 +165,7 @@
                         
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle">
-                                <i class="fa fa-bar-chart-o"></i>
+                                <i class="fa fa-certificate"></i>
                                 <span class="hidden-xs">Examinations</span>
                             </a>
                             <ul class="dropdown-menu">
@@ -175,7 +175,29 @@
                         </li>
 
                         
-
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-user"></i>
+                                <span class="hidden-xs">Users</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/users/users_controller/manage_users">Manage Users</a></li>
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/user_levels/user_levels_controller/manage_user_levels">Manage User Levels</a></li>
+                                
+                            </ul>
+                        </li>
+                        
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-briefcase"></i>
+                                <span class="hidden-xs">Courses</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/courses/courses_controller/manage_courses">Manage Courses</a></li>
+                                
+                            </ul>
+                        </li>
 
 
                     </ul>
@@ -217,5 +239,7 @@
         
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_basic.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_exam.js"></script>
+        <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_courses.js"></script>
+        <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_users.js"></script>
     </body>
 </html>

@@ -1,25 +1,21 @@
 <?php
 
-class Course_instructor_model extends CI_Model{
-    
-    var $CourseInstructor;
+class Course_instructor_model extends CI_Model {
+
+    var $CourseInstructorID;
     var $CourseID;
     var $Year;
     var $SemesterID;
     var $InstructorID;
-    
+
     function __construct() {
         parent::__construct();
     }
-    
-    public function getCcourseInstructor(){
-        return $this->CourseInstructor;
+
+    public function getCourseInstructorID() {
+        return $this->CourseInstructorID;
     }
-    
-    public function setCourseInstructor($CourseInstructor){
-        $this->CourseInstructor=$CourseInstructor;
-    }
-    
+
     public function getCourseID() {
         return $this->CourseID;
     }
@@ -34,6 +30,10 @@ class Course_instructor_model extends CI_Model{
 
     public function getInstructorID() {
         return $this->InstructorID;
+    }
+
+    public function setCourseInstructorID($CourseInstructorID) {
+        $this->CourseInstructorID = $CourseInstructorID;
     }
 
     public function setCourseID($CourseID) {
@@ -52,6 +52,4 @@ class Course_instructor_model extends CI_Model{
         $this->InstructorID = $InstructorID;
     }
 
-
 }
-
