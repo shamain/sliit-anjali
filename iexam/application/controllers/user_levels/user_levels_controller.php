@@ -8,12 +8,12 @@ class User_levels_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-//        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-//            redirect(site_url() . '/login/login_controller');
-//        } else {
-        $this->load->model('user_levels/user_levels_model');
-        $this->load->model('user_levels/user_levels_service');
-//        }
+        if (!$this->session->userdata('USER_LOGGED_IN')) {
+            redirect(site_url() . '/login/login_controller');
+        } else {
+            $this->load->model('user_levels/user_levels_model');
+            $this->load->model('user_levels/user_levels_service');
+        }
     }
 
     function manage_user_levels() {
@@ -60,7 +60,7 @@ class User_levels_controller extends CI_Controller {
     }
 
     function edit_user_level() {
-        
+
         $user_level_model = new User_levels_model();
         $user_level_service = new User_levels_service();
 

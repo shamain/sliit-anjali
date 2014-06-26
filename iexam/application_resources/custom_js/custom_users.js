@@ -37,7 +37,7 @@ function userlevelAddForm() {
                 if (msg == 1) {
                     $("#add_user_level_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The User Level has been added.</div>');
                     add_userlevel_form.reset();
-                    location.reload();
+//                    location.reload();
                 } else {
                     $("#add_user_level_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The User Level has failed.</div>');
                 }

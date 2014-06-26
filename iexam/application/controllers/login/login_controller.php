@@ -8,14 +8,9 @@ class Login_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-        // if ($this->session->userdata('LCS_EMPLOYEE_LOGGED_IN')) {
-        //echo 1;die();
-        // redirect(base_url() . 'index.php/IMS/dashboard_controller/');
-        // } else {
+
         $this->load->model('users/users_model');
         $this->load->model('users/users_service');
-
-        //}
     }
 
     function index() {

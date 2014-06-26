@@ -9,11 +9,16 @@ class Users_service extends CI_Model {
 
     public function get_all_users() {
 
-        $this->db->select('*');
+        $this->db->select('users.*,designations.Designation,user_levels.userlevelname,marital_statuses.MaritalStatus');
         $this->db->from('users');
-        $this->db->where('DelInd', '1');
-        $this->db->where('Activated', 1);
-        $this->db->order_by("UserID", "desc");
+        $this->db->join('designations', 'designations.DesignationID = users.DesignationID');
+        $this->db->join('user_levels', 'user_levels.userlevelid = users.UserLevel');
+        $this->db->join('marital_statuses', 'marital_statuses.MaritalStatusID = users.MaritalStatusID');
+        $this->db->where('users.DelInd', '1');
+        $this->db->where('designations.DelInd', '1');
+        $this->db->where('user_levels.DelInd', '1');
+//        $this->db->where('users.Activated', 1);
+        $this->db->order_by("users.UserID", "desc");
         $query = $this->db->get();
         return $query->result();
     }

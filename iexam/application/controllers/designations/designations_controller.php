@@ -8,12 +8,12 @@ class Designations_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-//        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-//            redirect(site_url() . '/login/login_controller');
-//        } else {
-        $this->load->model('designations/designations_model');
-        $this->load->model('designations/designations_service');
-//        }
+        if (!$this->session->userdata('USER_LOGGED_IN')) {
+            redirect(site_url() . '/login/login_controller');
+        } else {
+            $this->load->model('designations/designations_model');
+            $this->load->model('designations/designations_service');
+        }
     }
 
     function manage_designations() {

@@ -8,15 +8,15 @@ class Courses_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-//        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-//            redirect(site_url() . '/login/login_controller');
-//        } else {
-        $this->load->model('courses/courses_model');
-        $this->load->model('courses/courses_service');
+        if (!$this->session->userdata('USER_LOGGED_IN')) {
+            redirect(site_url() . '/login/login_controller');
+        } else {
+            $this->load->model('courses/courses_model');
+            $this->load->model('courses/courses_service');
 
-        $this->load->model('subjects/subjects_model');
-        $this->load->model('subjects/subjects_service');
-//        }
+            $this->load->model('subjects/subjects_model');
+            $this->load->model('subjects/subjects_service');
+        }
     }
 
     function manage_courses() {

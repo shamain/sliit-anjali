@@ -8,12 +8,12 @@ class Marital_statuses_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-//        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-//            redirect(site_url() . '/login/login_controller');
-//        } else {
-        $this->load->model('marital_statuses/marital_statuses_model');
-        $this->load->model('marital_statuses/marital_statuses_service');
-//        }
+        if (!$this->session->userdata('USER_LOGGED_IN')) {
+            redirect(site_url() . '/login/login_controller');
+        } else {
+            $this->load->model('marital_statuses/marital_statuses_model');
+            $this->load->model('marital_statuses/marital_statuses_service');
+        }
     }
 
     function manage_marital_statuses() {

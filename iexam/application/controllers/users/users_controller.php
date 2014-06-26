@@ -8,20 +8,37 @@ class Users_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-//        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-//            redirect(site_url() . '/login/login_controller');
-//        } else {
+        if (!$this->session->userdata('USER_LOGGED_IN')) {
+            redirect(site_url() . '/login/login_controller');
+        } else {
         $this->load->model('users/users_model');
         $this->load->model('users/users_service');
-//        }
+
+        $this->load->model('designations/designations_model');
+        $this->load->model('designations/designations_service');
+
+        $this->load->model('marital_statuses/marital_statuses_model');
+        $this->load->model('marital_statuses/marital_statuses_service');
+
+        $this->load->model('user_levels/user_levels_model');
+        $this->load->model('user_levels/user_levels_service');
+        }
     }
 
     function manage_users() {
 
         $users_service = new Users_service();
+        $designations_service = new Designations_service();
+        $marital_statuses_service = new Marital_statuses_service();
+        $user_level_service = new User_levels_service();
+
+
 
         $data['heading'] = "Manage Users";
         $data['users'] = $users_service->get_all_users();
+        $data['designations'] = $designations_service->get_all_designations();
+        $data['marital_statuses'] = $marital_statuses_service->get_all_marital_statuses();
+        $data['user_levels'] = $user_level_service->get_all_user_levels();
 
 //        $partials = array('content' => 'subjects/manage_subjects_view');
 //        $this->template->load('template/main_template', $partials, $data);
@@ -77,7 +94,7 @@ class Users_controller extends CI_Controller {
     }
 
     function edit_user() {
-        
+
         $users_model = new Users_model();
         $users_service = new Users_service();
 

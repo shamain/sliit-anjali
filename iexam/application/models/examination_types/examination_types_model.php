@@ -3,7 +3,7 @@
 class Examination_types_model extends CI_Model {
 
     var $ExaminationTypeID;
-    var $ExaminaionType;
+    var $ExaminationType;
     var $DelInd;
 
     function __construct() {
@@ -14,20 +14,20 @@ class Examination_types_model extends CI_Model {
         return $this->ExaminationTypeID;
     }
 
-    public function getExaminaionType() {
-        return $this->ExaminaionType;
-    }
-
-    public function getDelInd() {
-        return $this->DelInd;
-    }
-
     public function setExaminationTypeID($ExaminationTypeID) {
         $this->ExaminationTypeID = $ExaminationTypeID;
     }
 
-    public function setExaminaionType($ExaminaionType) {
-        $this->ExaminaionType = $ExaminaionType;
+    public function getExaminationType() {
+        return $this->ExaminationType;
+    }
+
+    public function setExaminationType($ExaminationType) {
+        $this->ExaminationType = $ExaminationType;
+    }
+
+    public function getDelInd() {
+        return $this->DelInd;
     }
 
     public function setDelInd($DelInd) {

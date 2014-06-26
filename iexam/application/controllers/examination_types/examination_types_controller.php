@@ -8,12 +8,12 @@ class Examination_types_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-//        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-//            redirect(site_url() . '/login/login_controller');
-//        } else {
+        if (!$this->session->userdata('USER_LOGGED_IN')) {
+            redirect(site_url() . '/login/login_controller');
+        } else {
         $this->load->model('examination_types/examination_types_model');
         $this->load->model('examination_types/examination_types_service');
-//        }
+        }
     }
 
     function manage_examination_types() {
@@ -35,7 +35,7 @@ class Examination_types_controller extends CI_Controller {
         $examination_types_model = new Examination_types_model();
         $examination_types_service = new Examination_types_service();
 
-        $examination_types_model->setExaminaionType($this->input->post('exam_type_name', TRUE));
+        $examination_types_model->setExaminationType($this->input->post('exam_type_name', TRUE));
         $examination_types_model->setDelInd('1');
 
         echo $examination_types_service->add_new_examination_type($examination_types_model);
@@ -64,7 +64,7 @@ class Examination_types_controller extends CI_Controller {
         $examination_types_model = new Examination_types_model();
         $examination_types_service = new Examination_types_service();
 
-        $examination_types_model->setExaminaionType($this->input->post('exam_type_name', TRUE));
+        $examination_types_model->setExaminationType($this->input->post('exam_type_name', TRUE));
 
         $examination_types_model->setExaminationTypeID($this->input->post('exam_type_id', TRUE));
 

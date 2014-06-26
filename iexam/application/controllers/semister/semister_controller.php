@@ -8,12 +8,12 @@ class Semister_controller extends CI_Controller {
     function __construct() {
         parent::__construct();
 
-//        if (!$this->session->userdata('EMPLOYEE_LOGGED_IN')) {
-//            redirect(site_url() . '/login/login_controller');
-//        } else {
-        $this->load->model('semisters/semisters_model');
-        $this->load->model('semisters/semisters_service');
-//        }
+        if (!$this->session->userdata('USER_LOGGED_IN')) {
+            redirect(site_url() . '/login/login_controller');
+        } else {
+            $this->load->model('semisters/semisters_model');
+            $this->load->model('semisters/semisters_service');
+        }
     }
 
     function manage_semisters() {
@@ -65,7 +65,7 @@ class Semister_controller extends CI_Controller {
 
         $semister_model = new Semisters_model();
         $semister_service = new Semisters_service();
-        
+
         $semister_model->setSemester($this->input->post('semister_name', TRUE));
 
         $semister_model->setSemesterID($this->input->post('semister_id', TRUE));
