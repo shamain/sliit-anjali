@@ -51,7 +51,7 @@ class Courses_controller extends CI_Controller {
 
         $courses_service = new Courses_service();
 
-        echo $courses_service->delete_course(trim($this->input->post('id', TRUE)));
+        echo $courses_service->delete_course(trim($this->input->post('course_id', TRUE)));
     }
 
     function edit_course_view($id) {
