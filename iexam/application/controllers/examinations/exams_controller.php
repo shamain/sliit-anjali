@@ -11,64 +11,103 @@ class Examinations_controller extends CI_Controller {
         if (!$this->session->userdata('USER_LOGGED_IN')) {
             redirect(site_url() . '/login/login_controller');
         } else {
-        $this->load->model('examinations/examinations_model');
-        $this->load->model('examination_types/examination_types_service');
+            $this->load->model('examinations/examinations_model');
+            $this->load->model('examination_types/examinations_service');
+
+            $this->load->model('examination_types/examination_types_model');
+            $this->load->model('examination_types/examination_types_service');
+            
+            $this->load->model('semisters/semisters_model');
+            $this->load->model('semisters/semisters_service');
+            
+            $this->load->model('courses/courses_model');
+            $this->load->model('courses/courses_service');
+            
+            $this->load->model('users/users_model');
+            $this->load->model('users/users_service');
+            
         }
     }
 
-    function manage_examination_types() {
+    function manage_examinations() {
 
+        $examinations_service = new Examinations_service();
         $examination_types_service = new Examination_types_service();
+        $semister_service = new Semisters_service();
+        $courses_service = new Courses_service();
 
-        $data['heading'] = "Manage Exam Types";
+        $data['heading'] = "Manage Examinations";
+        $data['examinations'] = $examinations_service->get_all_examinations();
         $data['examination_types'] = $examination_types_service->get_all_examination_types();
+        $data['semesters'] = $semister_service->get_all_semisters();
+        $data['courses'] = $courses_service->get_all_courses();
+        
 
 //        $partials = array('content' => 'examination_types/manage_examination_types_view');
 //        $this->template->load('template/main_template', $partials, $data);
-        
-        $this->load->view('examination_types/manage_examination_types_view', $data);
+
+        $this->load->view('examinations/manage_examination_view', $data);
     }
 
-    function add_new_examination_type() {
+    function add_new_examination() {
 
 
-        $examination_types_model = new Examination_types_model();
-        $examination_types_service = new Examination_types_service();
+        $examinations_model = new Examinations_model();
+        $examinations_service = new Examinations_service();
 
-        $examination_types_model->setExaminationType($this->input->post('exam_type_name', TRUE));
-        $examination_types_model->setDelInd('1');
+        $examinations_model->setName($this->input->post('exam_name', TRUE));
+        $examinations_model->setExaminationTypeID($this->input->post('exam_type_id', TRUE));
+        $examinations_model->setYear($this->input->post('year', TRUE));
+        $examinations_model->setSemesterID($this->input->post('semester_id', TRUE));
+        $examinations_model->setCourseID($this->input->post('course_id', TRUE));
+        $examinations_model->setInstructorID($this->input->post('instructor_id', TRUE));
+        $examinations_model->setNumberOfMCQs($this->input->post('no_mcq', TRUE));
+        $examinations_model->setNumberOfShortAnswerQuestions($this->input->post('no_short_ans', TRUE));
+        $examinations_model->setDuration($this->input->post('duration', TRUE));
+        $examinations_model->setActive($this->input->post('active', TRUE));
+        $examinations_model->setDelInd('1');
 
-        echo $examination_types_service->add_new_examination_type($examination_types_model);
+        echo $examinations_service->add_new_examination($examinations_model);
     }
 
-    function delete_examination_type() {
+    function delete_examination() {
 
-        $examination_types_service = new Examination_types_service();
+        $examinations_service = new Examinations_service();
 
-        echo $examination_types_service->delete_examination_type(trim($this->input->post('id', TRUE)));
+        echo $examinations_service->delete_examination(trim($this->input->post('id', TRUE)));
     }
 
-    function edit_examination_type_view($id) {
+    function edit_examination_view($id) {
 
-        $examination_types_service = new Examination_types_service();
+        $examinations_service = new Examinations_service();
 
-        $data['heading'] = "Edit Exam Type";
-        $data['examination_type'] = $examination_types_service->get_examination_type_by_id($id);
+        $data['heading'] = "Edit Examination";
+        $data['examination'] = $examinations_service->get_examination_by_id($id);
 
 
         $partials = array('content' => 'semisters/edit_semisters_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 
-    function edit_examination_type() {
-        $examination_types_model = new Examination_types_model();
-        $examination_types_service = new Examination_types_service();
+    function edit_examination() {
+        $examinations_model = new Examinations_model();
+        $examinations_service = new Examinations_service();
 
-        $examination_types_model->setExaminationType($this->input->post('exam_type_name', TRUE));
+        $examinations_model->setName($this->input->post('exam_name', TRUE));
+        $examinations_model->setExaminationTypeID($this->input->post('exam_type_id', TRUE));
+        $examinations_model->setYear($this->input->post('year', TRUE));
+        $examinations_model->setSemesterID($this->input->post('semester_id', TRUE));
+        $examinations_model->setCourseID($this->input->post('course_id', TRUE));
+        $examinations_model->setInstructorID($this->input->post('instructor_id', TRUE));
+        $examinations_model->setNumberOfMCQs($this->input->post('no_mcq', TRUE));
+        $examinations_model->setNumberOfShortAnswerQuestions($this->input->post('no_short_ans', TRUE));
+        $examinations_model->setDuration($this->input->post('duration', TRUE));
+        $examinations_model->setActive($this->input->post('active', TRUE));
+        $examinations_model->setDelInd('1');
 
-        $examination_types_model->setExaminationTypeID($this->input->post('exam_type_id', TRUE));
+        $examinations_model->setExaminationID($this->input->post('exam_id', TRUE));
 
-        echo $examination_types_service->update_examination_type($examination_types_model);
+        echo $examinations_service->update_examination($examinations_model);
     }
 
 }

@@ -82,7 +82,7 @@
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $user->UserID; ?>" title="Edit this User">
+                                    <a href="<?php echo site_url(); ?>/users/users_controller/edit_user_view/<?php echo $user->UserID; ?>" title="Edit this User">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this User" onclick="delete_user(<?php echo $user->UserID; ?>)">
@@ -249,9 +249,49 @@
 
                     <fieldset>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Semester</label>
+                            <label class="col-sm-3 control-label">Gender</label>
                             <div class="col-sm-5">
-                                <input id="subject_name" class="form-control" type="text" name="subject_name" >  
+                                <input id="gender" class="form-control" type="text" name="gender" >  
+                            </div>
+                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Date Of Birth</label>
+                            <div class="col-sm-5">
+                                <input id="dob" class="form-control" type="text" name="dob" >  
+                            </div>
+                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Registration Valid Till</label>
+                            <div class="col-sm-5">
+                                <input id="reg_valid_til" class="form-control" type="text" name="reg_valid_til" >  
+                            </div>
+                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Activated</label>
+                            <div class="col-sm-5">
+                                <input id="active_status" class="form-control" type="text" name="active_status" >  
+                            </div>
+                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Upload Photo</label>
+                            <div class="col-sm-5">
+                                <input id="photo_path" class="form-control" type="text" name="photo_path" >  
                             </div>
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>

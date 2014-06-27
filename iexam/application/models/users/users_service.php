@@ -55,7 +55,6 @@ class Users_service extends CI_Model {
             'Gender' => $users_model->getGender(),
             'MaritalStatusID' => $users_model->getMaritalStatusID(),
             'DateOfBirth' => $users_model->getDateOfBirth(),
-            'RegisteredOn' => $users_model->getRegisteredOn(),
             'RegistrationValidTill' => $users_model->getRegistrationValidTill(),
             'PhotoPath' => $users_model->getPhotoPath(),
         );

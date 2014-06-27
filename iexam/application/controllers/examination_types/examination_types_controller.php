@@ -11,8 +11,8 @@ class Examination_types_controller extends CI_Controller {
         if (!$this->session->userdata('USER_LOGGED_IN')) {
             redirect(site_url() . '/login/login_controller');
         } else {
-        $this->load->model('examination_types/examination_types_model');
-        $this->load->model('examination_types/examination_types_service');
+            $this->load->model('examination_types/examination_types_model');
+            $this->load->model('examination_types/examination_types_service');
         }
     }
 
@@ -25,7 +25,7 @@ class Examination_types_controller extends CI_Controller {
 
 //        $partials = array('content' => 'examination_types/manage_examination_types_view');
 //        $this->template->load('template/main_template', $partials, $data);
-        
+
         $this->load->view('examination_types/manage_examination_types_view', $data);
     }
 

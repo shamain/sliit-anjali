@@ -54,7 +54,7 @@ class Users_controller extends CI_Controller {
         $users_model->setUsername($this->input->post('user_name', TRUE));
         $users_model->setPassword(md5($this->input->post('password', TRUE)));
         $users_model->setUserLevel($this->input->post('user_level', TRUE));
-        $users_model->setActivated(1);
+        $users_model->setActivated($this->input->post('active_status', TRUE));
         $users_model->setDesignationID($this->input->post('designation_id', TRUE));
         $users_model->setFirstName($this->input->post('first_name', TRUE));
         $users_model->setMiddleName($this->input->post('middle_name', TRUE));
@@ -65,7 +65,7 @@ class Users_controller extends CI_Controller {
         $users_model->setGender($this->input->post('gender', TRUE));
         $users_model->setNICNumber($this->input->post('nic', TRUE));
         $users_model->setDateOfBirth($this->input->post('dob', TRUE));
-        $users_model->setRegisteredOn($this->input->post('reg_on', TRUE));
+        $users_model->setRegisteredOn(date('Y-m-d H:i:s'));
         $users_model->setRegistrationValidTill($this->input->post('reg_valid_til', TRUE));
         $users_model->setPhotoPath($this->input->post('photo_path', TRUE));
         $users_model->setDelInd('1');
@@ -89,7 +89,7 @@ class Users_controller extends CI_Controller {
         $data['user'] = $users_service->get_user_by_id($id);
 
 
-        $partials = array('content' => 'semisters/edit_semisters_view');
+        $partials = array('content' => 'users/edit_users_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 
@@ -111,7 +111,6 @@ class Users_controller extends CI_Controller {
         $users_model->setGender($this->input->post('gender', TRUE));
         $users_model->setNICNumber($this->input->post('nic', TRUE));
         $users_model->setDateOfBirth($this->input->post('dob', TRUE));
-        $users_model->setRegisteredOn($this->input->post('reg_on', TRUE));
         $users_model->setRegistrationValidTill($this->input->post('reg_valid_til', TRUE));
         $users_model->setPhotoPath($this->input->post('photo_path', TRUE));
 

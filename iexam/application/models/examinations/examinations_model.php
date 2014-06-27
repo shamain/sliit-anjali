@@ -13,11 +13,11 @@ class Examinations_model extends CI_Model{
     var $NumberOfShortAnswerQuestions;
     var $Duration;
     var $Active;
+    var $DelInd;
     
     function __construct() {
         parent::__construct();
     }
-    
     public function getExaminationID() {
         return $this->ExaminationID;
     }
@@ -60,6 +60,10 @@ class Examinations_model extends CI_Model{
 
     public function getActive() {
         return $this->Active;
+    }
+
+    public function getDelInd() {
+        return $this->DelInd;
     }
 
     public function setExaminationID($ExaminationID) {
@@ -106,6 +110,11 @@ class Examinations_model extends CI_Model{
         $this->Active = $Active;
     }
 
+    public function setDelInd($DelInd) {
+        $this->DelInd = $DelInd;
+    }
 
+
+   
 }
 
