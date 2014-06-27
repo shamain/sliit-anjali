@@ -4,7 +4,7 @@
             <div class="box-header">
                 <div class="box-name">
                     <i class="fa fa-file"></i>
-                    <span>Courses</span>
+                    <span>Course Students</span>
                 </div>
                 <div class="box-icons">
                     <a class="collapse-link">
@@ -21,36 +21,35 @@
             </div>
 
             <div class="box-content">
-                <button class="btn btn-success " type="button" id="add_course_btn" data-toggle="modal" data-target="#add_course_modal">
+                <button class="btn btn-success" type="button" id="add_course_student_btn" data-toggle="modal" data-target="#add_course_student_modal">
                     <i class="fa fa-plus"></i>
                 </button>
             </div>
+
             <div class="box-content no-padding">
-                <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="course_table">
+                <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="course_student_table">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Course Code</th>
-                            <th>Course</th>
-                            <th>Subject</th>
+                            <th>Course Name</th>
+                            <th>Student</th>
                             <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $i = 0;
-                        foreach ($courses as $course) {
+                        foreach ($course_students as $course_student) {
                             ?> 
-                            <tr id="course_<?php echo $course->CourseID; ?>">
+                            <tr id="course_student_<?php echo $course_student->CourseStudentID; ?>">
                                 <td><?php echo ++$i; ?></td>
-                                <td><?php echo $course->CourseCode; ?></td>
-                                <td><?php echo $course->Course; ?></td>
-                                <td><?php echo $course->Subject; ?></td>
+                                <td><?php echo $course_student->Course; ?></td>
+                                <td><?php echo $course_student->Student; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/courses/courses_controller/edit_course_view/<?php echo $course->CourseID; ?>" title="Edit this Course">
+                                    <a href="<?php echo site_url(); ?>/courses/course_student_controller/edit_course_student_view/<?php echo $course_student->CourseStudentID; ?>" title="Edit this Course Student">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a style="cursor: pointer;"   title="Delete this Course" onclick="delete_course(<?php echo $course->CourseID; ?>)">
+                                    <a style="cursor: pointer;"   title="Delete this Course Student" onclick="delete_course_student(<?php echo $course_student->CourseStudentID; ?>)">
                                         <i class="fa fa-times"></i>
                                     </a>
 
@@ -67,26 +66,31 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="add_course_modal" tabindex="-1" role="dialog" aria-labelledby="add_course_modalLabel" aria-hidden="true">
+<div class="modal fade" id="add_course_student_modal" tabindex="-1" role="dialog" aria-labelledby="add_course_student_modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="add_course_form" name="add_course_form" class="form-horizontal bootstrap-validator-form">
-                <div class="modal-header tiles green text-center">
+            <form id="add_course_student_form" name="add_course_student_form" class="form-horizontal bootstrap-validator-form">
+                <div class="modal-header tiles green">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
                     <i class="fa fa-desktop fa-4x"></i>
-                    <h4 id="add_course_modalLabel" class="semi-bold text-white">It's a new course</h4>
-                    <p class="no-margin text-white">Include course details here.</p>
+                    <h4 id="add_course_student_modalLabel" class="semi-bold text-white">It's a new course student</h4>
+                    <p class="no-margin text-white">Include course student details here.</p>
                     <br>
                 </div>
                 <div class="modal-body">
-
 
                     <fieldset>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Course</label>
                             <div class="col-sm-5">
-                                <input id="course_name" class="form-control" type="text" name="course_name" >  
+                                <select id="course_id" name="course_id">
+                                    <option>Please Select</option>
+                                    <?php foreach ($courses as $course) { ?>
+                                        <option value="<?php echo $course->CourseID; ?>"> <?php echo $course->Course; ?> </option>
+                                    <?php } ?>
+
+                                </select>
                             </div>
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
@@ -94,12 +98,12 @@
 
                     <fieldset>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Subject</label>
+                            <label class="col-sm-3 control-label">Student</label>
                             <div class="col-sm-5">
-                                <select id="subject_id" name="subject_id" >
+                                <select id="student" name="student" >
                                     <option>Please Select</option>
-                                    <?php foreach ($subjects as $subject) { ?>
-                                        <option value="<?php echo $subject->SubjectID; ?>"> <?php echo $subject->Subject; ?> </option>
+                                    <?php foreach ($students as $student) { ?>
+                                        <option value="<?php echo $student->UserID; ?>"> <?php echo $student->FirstName; ?> </option>
                                     <?php } ?>
 
                                 </select>
@@ -110,20 +114,9 @@
                     </fieldset>
 
 
-                    <fieldset>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Course Code</label>
-                            <div class="col-sm-5">
-                                <input id="course_code" class="form-control" type="text" name="course_code" >  
-                            </div>
-                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
-                        </div>
-                    </fieldset>
-
-
 
                 </div>
-                <div id="add_course_msg" class="form-row"> </div>
+                <div id="add_course_student_msg" class="form-row"> </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -142,7 +135,7 @@
 <script>
 
     function AllTables() {
-        courseTable();
+        courseStudentTable();
         LoadSelect2Script(MakeSelect2);
     }
     function MakeSelect2() {
@@ -154,7 +147,7 @@
     $(document).ready(function() {
         // Load Datatables and run plugin on tables 
         LoadDataTablesScripts(AllTables);
-        LoadBootstrapValidatorScript(courseAddForm);
+        LoadBootstrapValidatorScript(courseStudentAddForm);
     });
 
 </script>

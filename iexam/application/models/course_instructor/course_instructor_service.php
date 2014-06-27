@@ -9,9 +9,15 @@ class Course_instructor_service extends CI_Model {
 
     public function get_all_course_instructor() {
 
-        $this->db->select('*');
+        $this->db->select('course_instructor.*,courses.Course,semisters.Semester,users.FirstName as Instructor');
         $this->db->from('course_instructor');
-//        $this->db->where('courses.DelInd', '1');
+        $this->db->join('courses', 'courses.CourseID = course_instructor.CourseID');
+        $this->db->join('semisters', 'semisters.SemesterID = course_instructor.SemisterID');
+        $this->db->join('users', 'users.UserID = course_instructor.InstructorID');
+        $this->db->where('course_instructor.DelInd', '1');
+        $this->db->where('users.DelInd', '1');
+        $this->db->where('courses.DelInd', '1');
+        $this->db->where('semisters.DelInd', '1');
         $this->db->order_by("course_instructor.CourseInstructorID", "desc");
         $query = $this->db->get();
         return $query->result();

@@ -6,12 +6,12 @@
                     <i class="fa fa-users"></i>
                     <span>Designations</span>
                 </div>
-              
+
             </div>
             <div class="box-content">
-            <button class="btn btn-success" type="button" id="add_designation_btn" data-toggle="modal" data-target="#add_designation_modal">
-               Add Designation Type
-            </button>
+                <button class="btn btn-success" type="button" id="add_designation_btn" data-toggle="modal" data-target="#add_designation_modal">
+                    Add Designation Type
+                </button>
             </div>
             <div class="box-content">
                 <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="designation_table">
@@ -28,7 +28,7 @@
                         foreach ($designations as $designation) {
                             ?> 
                             <tr id="designation_<?php echo $designation->DesignationID; ?>">
-                                <td><?php echo++$i; ?></td>
+                                <td><?php echo ++$i; ?></td>
                                 <td><?php echo $designation->Designation; ?></td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/designations/designations_controller/edit_designation_view/<?php echo $designation->DesignationID; ?>" title="Edit this Designation">
@@ -74,7 +74,7 @@
                         </div>
                     </fieldset>
 
-                   
+
 
                 </div>
                 <div id="add_designation_msg" class="form-row"> </div>
@@ -95,20 +95,20 @@
 
 <script>
 
-                                        function AllTables() {
-                                            designationTable();
-                                            LoadSelect2Script(MakeSelect2);
-                                        }
-                                        function MakeSelect2() {
-                                            $('select').select2();
-                                            $('.dataTables_filter').each(function() {
-                                                $(this).find('label input[type=text]').attr('placeholder', 'Search');
-                                            });
-                                        }
-                                        $(document).ready(function() {
-                                            // Load Datatables and run plugin on tables 
-                                            LoadDataTablesScripts(AllTables);
-                                            LoadBootstrapValidatorScript(designationAddForm);
-                                        });
+    function AllTables() {
+        designationTable();
+        LoadSelect2Script(MakeSelect2);
+    }
+    function MakeSelect2() {
+        $('select').select2();
+        $('.dataTables_filter').each(function() {
+            $(this).find('label input[type=text]').attr('placeholder', 'Search');
+        });
+    }
+    $(document).ready(function() {
+        // Load Datatables and run plugin on tables 
+        LoadDataTablesScripts(AllTables);
+        LoadBootstrapValidatorScript(designationAddForm);
+    });
 
 </script>

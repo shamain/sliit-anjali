@@ -9,8 +9,12 @@ class Course_students_service extends CI_Model {
 
     public function get_all_course_students() {
 
-        $this->db->select('*');
+        $this->db->select('course_students.*,courses.Course,users.FirstName as Student');
         $this->db->from('course_students');
+        $this->db->join('courses', 'courses.CourseID = course_students.CourseID');
+        $this->db->join('users', 'users.UserID = course_students.StudentID');
+        $this->db->where('course_students.DelInd', '1');
+        $this->db->where('users.DelInd', '1');
         $this->db->where('courses.DelInd', '1');
         $this->db->order_by("course_students.CourseStudentID", "desc");
         $query = $this->db->get();

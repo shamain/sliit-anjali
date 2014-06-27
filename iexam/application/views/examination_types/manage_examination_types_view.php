@@ -6,14 +6,14 @@
                     <i class="fa fa-bookmark-o"></i>
                     <span>Examination Types</span>
                 </div>
-               
+
                 <div class="no-move"></div>
             </div>
-            
+
             <div class="box-content">
                 <button class="btn btn-success" type="button" id="add_exam_type_btn" data-toggle="modal" data-target="#add_exam_type_modal" style="margin-bottom: 10px;">
-               Add Exam Type
-            </button>
+                    Add Exam Type
+                </button>
                 <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="exam_type_table">
                     <thead>
                         <tr>
@@ -28,7 +28,7 @@
                         foreach ($examination_types as $examination_type) {
                             ?> 
                             <tr id="examtype_<?php echo $examination_type->ExaminationTypeID; ?>">
-                                <td><?php echo++$i; ?></td>
+                                <td><?php echo ++$i; ?></td>
                                 <td><?php echo $examination_type->ExaminationType; ?></td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/examination_types/examination_types_controller/edit_examination_type_view/<?php echo $examination_type->ExaminationTypeID; ?>" title="Edit this Exam Type">
@@ -74,7 +74,7 @@
                         </div>
                     </fieldset>
 
-                   
+
 
                 </div>
                 <div id="add_exam_type_msg" class="form-row"> </div>
@@ -95,20 +95,20 @@
 
 <script>
 
-                                        function AllTables() {
-                                            examtypeTable();
-                                            LoadSelect2Script(MakeSelect2);
-                                        }
-                                        function MakeSelect2() {
-                                            $('select').select2();
-                                            $('.dataTables_filter').each(function() {
-                                                $(this).find('label input[type=text]').attr('placeholder', 'Search');
-                                            });
-                                        }
-                                        $(document).ready(function() {
-                                            // Load Datatables and run plugin on tables 
-                                            LoadDataTablesScripts(AllTables);
-                                            LoadBootstrapValidatorScript(examtypeAddForm);
-                                        });
+    function AllTables() {
+        examtypeTable();
+        LoadSelect2Script(MakeSelect2);
+    }
+    function MakeSelect2() {
+        $('select').select2();
+        $('.dataTables_filter').each(function() {
+            $(this).find('label input[type=text]').attr('placeholder', 'Search');
+        });
+    }
+    $(document).ready(function() {
+        // Load Datatables and run plugin on tables 
+        LoadDataTablesScripts(AllTables);
+        LoadBootstrapValidatorScript(examtypeAddForm);
+    });
 
 </script>

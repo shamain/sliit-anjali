@@ -16,10 +16,12 @@ class Course_instructor_controller extends CI_Controller {
 
             $this->load->model('semisters/semisters_model');
             $this->load->model('semisters/semisters_service');
-            
+
             $this->load->model('courses/courses_model');
             $this->load->model('courses/courses_service');
-          
+
+            $this->load->model('users/users_model');
+            $this->load->model('users/users_service');
         }
     }
 
@@ -39,20 +41,18 @@ class Course_instructor_controller extends CI_Controller {
     }
 
     function add_new_instructor() {
-       
-        $course_instructor_model=new Course_instructor_model();
-        $course_instructor_service=new Course_instructor_service();
-        $courses_model = new Courses_model();
-        $courses_service = new Courses_service();
 
-        $course_instructor_model->setCourseID($this->input->post('course_id',TRUE));
-        $course_instructor_model->setSemesterID($this->input->post('semester_id',TRUE));
-        $course_instructor_model->setYear($this->input->post('year',TRUE));
-        $course_instructor_model->setInstructorID($this->input->post('instructor_id',TRUE));
-        
-        
+        $course_instructor_model = new Course_instructor_model();
+        $course_instructor_service = new Course_instructor_service();
 
-        echo $courses_instructor_service->add_new_instructor($course_instructor_model);
+
+        $course_instructor_model->setCourseID($this->input->post('course_id', TRUE));
+        $course_instructor_model->setSemesterID($this->input->post('semester_id', TRUE));
+        $course_instructor_model->setYear($this->input->post('year', TRUE));
+        $course_instructor_model->setInstructorID($this->input->post('instructor_id', TRUE));
+
+
+        echo $course_instructor_service->add_new_course_instructor($course_instructor_model);
     }
 
     function delete_course_instructor() {
@@ -70,21 +70,23 @@ class Course_instructor_controller extends CI_Controller {
         $data['instructor'] = $courses_instructor_service->get_course_instructor_by_id($id);
 
 
-        $partials = array('content' => 'semisters/edit_semisters_view');
+        $partials = array('content' => 'courses/edit_course_instructor_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 
-    function edit_course() {
-        $courses_model = new Courses_model();
-        $courses_service = new Courses_service();
+    function edit_course_instructor() {
+        $course_instructor_model = new Course_instructor_model();
+        $course_instructor_service = new Course_instructor_service();
 
-        $courses_model->setCourse($this->input->post('course_name', TRUE));
-        $courses_model->setCourseCode($this->input->post('course_code', TRUE));
-        $courses_model->setSubjectID($this->input->post('subject_id', TRUE));
 
-        $courses_model->setCourseID($this->input->post('course_id', TRUE));
+        $course_instructor_model->setCourseID($this->input->post('course_id', TRUE));
+        $course_instructor_model->setSemesterID($this->input->post('semester_id', TRUE));
+        $course_instructor_model->setYear($this->input->post('year', TRUE));
+        $course_instructor_model->setInstructorID($this->input->post('instructor_id', TRUE));
 
-        echo $courses_service->update_course($courses_model);
+        $course_instructor_model->setCourseInstructorID($this->input->post('course_ins_id', TRUE));
+
+        echo $course_instructor_service->update_course_instructor($course_instructor_model);
     }
 
 }

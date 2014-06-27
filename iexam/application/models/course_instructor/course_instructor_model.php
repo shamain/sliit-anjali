@@ -7,6 +7,7 @@ class Course_instructor_model extends CI_Model {
     var $Year;
     var $SemesterID;
     var $InstructorID;
+    var $DelInd;
 
     function __construct() {
         parent::__construct();
@@ -32,6 +33,10 @@ class Course_instructor_model extends CI_Model {
         return $this->InstructorID;
     }
 
+    public function getDelInd() {
+        return $this->DelInd;
+    }
+
     public function setCourseInstructorID($CourseInstructorID) {
         $this->CourseInstructorID = $CourseInstructorID;
     }
@@ -52,4 +57,10 @@ class Course_instructor_model extends CI_Model {
         $this->InstructorID = $InstructorID;
     }
 
+    public function setDelInd($DelInd) {
+        $this->DelInd = $DelInd;
+    }
+
+
+   
 }

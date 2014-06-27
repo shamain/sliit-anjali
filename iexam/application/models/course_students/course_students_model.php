@@ -1,15 +1,16 @@
 <?php
 
-class Course_Students_model extends CI_Model{
-    
+class Course_Students_model extends CI_Model {
+
     var $CourseStudentID;
     var $CourseID;
     var $StudentID;
-    
+    var $DelInd;
+
     function __construct() {
         parent::__construct();
     }
-    
+
     public function getCourseStudentID() {
         return $this->CourseStudentID;
     }
@@ -20,6 +21,10 @@ class Course_Students_model extends CI_Model{
 
     public function getStudentID() {
         return $this->StudentID;
+    }
+
+    public function getDelInd() {
+        return $this->DelInd;
     }
 
     public function setCourseStudentID($CourseStudentID) {
@@ -34,7 +39,8 @@ class Course_Students_model extends CI_Model{
         $this->StudentID = $StudentID;
     }
 
+    public function setDelInd($DelInd) {
+        $this->DelInd = $DelInd;
+    }
 
 }
-
-

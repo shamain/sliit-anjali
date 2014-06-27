@@ -11,7 +11,7 @@
             </div>
             <div class="box-content">
                 <form id="edit_user_level_form" name="edit_user_level_form" class="form-horizontal bootstrap-validator-form">
-                    <div class="modal-header tiles green">
+                    <div class="modal-header tiles green text-center">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <br>
                         <i class="fa fa-desktop fa-4x"></i>

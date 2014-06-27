@@ -20,9 +20,11 @@
                 <div class="no-move"></div>
             </div>
 
-            <button class="btn btn-success btn-app-sm" type="button" id="add_user_level_btn" data-toggle="modal" data-target="#add_user_level_modal">
-                <i class="fa fa-plus"></i>
-            </button>
+            <div class="box-content">
+                <button class="btn btn-success" type="button" id="add_user_level_btn" data-toggle="modal" data-target="#add_user_level_modal">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </div>
 
             <div class="box-content no-padding">
                 <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="subject_table">
@@ -39,7 +41,7 @@
                         foreach ($user_levels as $user_level) {
                             ?> 
                             <tr id="user_level_<?php echo $user_level->userlevelid; ?>">
-                                <td><?php echo++$i; ?></td>
+                                <td><?php echo ++$i; ?></td>
                                 <td><?php echo $user_level->userlevelname; ?></td>
                                 <td>
                                     <a href="<?php echo site_url(); ?>/user_levels/user_levels_controller/edit_user_level_view/<?php echo $user_level->userlevelid; ?>" title="Edit this User Level">
@@ -65,7 +67,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="add_userlevel_form" name="add_userlevel_form" class="form-horizontal bootstrap-validator-form">
-                <div class="modal-header tiles green">
+                <div class="modal-header tiles green text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
                     <i class="fa fa-desktop fa-4x"></i>
@@ -105,20 +107,20 @@
 
 <script>
 
-                                        function AllTables() {
-                                            userlevelTable();
-                                            LoadSelect2Script(MakeSelect2);
-                                        }
-                                        function MakeSelect2() {
-                                            $('select').select2();
-                                            $('.dataTables_filter').each(function() {
-                                                $(this).find('label input[type=text]').attr('placeholder', 'Search');
-                                            });
-                                        }
-                                        $(document).ready(function() {
-                                            // Load Datatables and run plugin on tables 
-                                            LoadDataTablesScripts(AllTables);
-                                            LoadBootstrapValidatorScript(userlevelAddForm);
-                                        });
+    function AllTables() {
+        userlevelTable();
+        LoadSelect2Script(MakeSelect2);
+    }
+    function MakeSelect2() {
+        $('select').select2();
+        $('.dataTables_filter').each(function() {
+            $(this).find('label input[type=text]').attr('placeholder', 'Search');
+        });
+    }
+    $(document).ready(function() {
+        // Load Datatables and run plugin on tables 
+        LoadDataTablesScripts(AllTables);
+        LoadBootstrapValidatorScript(userlevelAddForm);
+    });
 
 </script>
