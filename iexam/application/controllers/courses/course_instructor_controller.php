@@ -14,8 +14,8 @@ class Course_instructor_controller extends CI_Controller {
             $this->load->model('course_instructor/course_instructor_model');
             $this->load->model('course_instructor/course_instructor_service');
 
-            $this->load->model('semester/semester_model');
-            $this->load->model('semester/semester_service');
+            $this->load->model('semisters/semisters_model');
+            $this->load->model('semisters/semisters_service');
             
             $this->load->model('courses/courses_model');
             $this->load->model('courses/courses_service');
@@ -25,9 +25,9 @@ class Course_instructor_controller extends CI_Controller {
 
     function manage_instructors() {
 
-        $course_instructor_service = new Courses_instructor_service();
-        $semester_service = new Semester_service();
-        $course_service = new Course_service();
+        $course_instructor_service = new Course_instructor_service();
+        $semester_service = new Semisters_service;
+        $course_service = new Courses_service();
 
         $data['heading'] = "Manage Instructors";
         $data['instructors'] = $course_instructor_service->get_all_course_instructor();

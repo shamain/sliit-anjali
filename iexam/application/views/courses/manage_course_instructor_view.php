@@ -82,7 +82,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Course</label>
                             <div class="col-sm-5">
-                                  <select id="course_id" name="course_id" class="form-control">
+                                  <select id="course_id" name="course_id">
                                     <?php foreach ($courses as $course) { ?>
                                         <option value="<?php echo $course->CourseID; ?>"> <?php echo $course->Course; ?> </option>
                                     <?php } ?>
@@ -111,7 +111,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Semester</label>
                             <div class="col-sm-5">
-                                <select id="semester_id" name="semester_id" class="form-control">
+                                <select id="semester_id" name="semester_id" >
                                     <?php foreach ($semesters as $semester) { ?>
                                         <option value="<?php echo $semester->SemesterID; ?>"> <?php echo $semester->Semester; ?> </option>
                                     <?php } ?>
@@ -128,7 +128,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Instructor</label>
                             <div class="col-sm-5">
-                                <select id="instructor_id" name="instructor_id" class="form-control">
+                                <select id="instructor_id" name="instructor_id" >
                                     <?php foreach ($instructors as $instructor) { ?>
                                         <option value="<?php echo $instructor->InstructorID; ?>"> <?php echo $instructor->Instructor; ?> </option>
                                     <?php } ?>

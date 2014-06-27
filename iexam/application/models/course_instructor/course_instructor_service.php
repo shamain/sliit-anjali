@@ -11,8 +11,7 @@ class Course_instructor_service extends CI_Model {
 
         $this->db->select('*');
         $this->db->from('course_instructor');
-        $this->db->where('semisters.SemisterID', '1');
-        $this->db->where('courses.DelInd', '1');
+//        $this->db->where('courses.DelInd', '1');
         $this->db->order_by("course_instructor.CourseInstructorID", "desc");
         $query = $this->db->get();
         return $query->result();
