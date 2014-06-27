@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Examinations_controller extends CI_Controller {
+class Exams_controller extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -12,7 +12,7 @@ class Examinations_controller extends CI_Controller {
             redirect(site_url() . '/login/login_controller');
         } else {
             $this->load->model('examinations/examinations_model');
-            $this->load->model('examination_types/examinations_service');
+            $this->load->model('examinations/examinations_service');
 
             $this->load->model('examination_types/examination_types_model');
             $this->load->model('examination_types/examination_types_service');
@@ -41,7 +41,7 @@ class Examinations_controller extends CI_Controller {
         $data['examination_types'] = $examination_types_service->get_all_examination_types();
         $data['semesters'] = $semister_service->get_all_semisters();
         $data['courses'] = $courses_service->get_all_courses();
-        
+
 
 //        $partials = array('content' => 'examination_types/manage_examination_types_view');
 //        $this->template->load('template/main_template', $partials, $data);

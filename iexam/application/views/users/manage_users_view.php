@@ -20,9 +20,11 @@
                 <div class="no-move"></div>
             </div>
 
-            <button class="btn btn-success btn-app-sm" type="button" id="add_user_btn" data-toggle="modal" data-target="#add_user_modal">
-                <i class="fa fa-plus"></i>
-            </button>
+            <div class="box-content">
+                <button class="btn btn-success" type="button" id="add_user_btn" data-toggle="modal" data-target="#add_user_modal">
+                    Add User
+                </button>
+            </div>
 
             <div class="box-content no-padding">
                 <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="user_table">
@@ -49,7 +51,7 @@
                         foreach ($users as $user) {
                             ?> 
                             <tr id="user_<?php echo $user->UserID; ?>">
-                                <td><?php echo ++$i; ?></td>
+                                <td><?php echo++$i; ?></td>
                                 <td><?php echo $user->FirstName . ' ' . $user->MiddleName . ' ' . $user->LastName; ?></td>
                                 <td><?php echo $user->Designation; ?></td>
                                 <td><?php echo $user->userlevelname; ?></td>
@@ -65,14 +67,22 @@
                                     }
                                     ?>
                                 </td>
-                                <td><?php echo $user->marital_statuses; ?></td>
-                                <td><?php echo $user->DateOfBirth; ?></td>
+                                <td><?php echo $user->MaritalStatus; ?></td>
+                                <td>
+                                    <?php
+                                    if ($user->DateOfBirth == '0000-00-00') {
+                                        echo 'Not Set';
+                                    } else {
+                                        echo $user->DateOfBirth;
+                                    }
+                                    ?>
+                                </td>
                                 <td><?php echo $user->RegisteredOn; ?></td>
                                 <td>
                                     <?php
                                     if ($user->Activated == 1) {
                                         ?>
-                                        <code>Active</code>
+                                    <code class="txt-success">Active</code>
                                         <?php
                                     } else {
                                         ?>
@@ -105,10 +115,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="add_user_form" name="add_user_form" class="form-horizontal bootstrap-validator-form">
-                <div class="modal-header tiles green">
+                <div class="modal-header tiles green text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
-                    <i class="fa fa-desktop fa-4x"></i>
+                    <i class="fa  fa-user fa-4x"></i>
                     <h4 id="add_user_modalLabel" class="semi-bold text-white">It's a new user</h4>
                     <p class="no-margin text-white">Include user details here.</p>
                     <br>
@@ -245,13 +255,38 @@
                         </div>
                     </fieldset>
 
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Confirm Password</label>
+                            <div class="col-sm-5">
+                                <input id="cnfpassword" class="form-control" type="text" name="cnfpassword" >  
+                            </div>
+                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
+                        </div>
+                    </fieldset>
+
 
 
                     <fieldset>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Gender</label>
                             <div class="col-sm-5">
-                                <input id="gender" class="form-control" type="text" name="gender" >  
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio"  checked="true" value="0" name="gender">
+                                        Male
+                                        <i class="fa fa-circle-o small"></i>
+                                    </label>
+                                </div>
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="1" name="gender" >
+                                        Female 
+                                        <i class="fa fa-circle-o small"></i>
+                                    </label>
+                                </div>
+
                             </div>
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
@@ -279,9 +314,25 @@
 
                     <fieldset>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Activated</label>
+                            <label class="col-sm-3 control-label">Activate</label>
                             <div class="col-sm-5">
-                                <input id="active_status" class="form-control" type="text" name="active_status" >  
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio"  checked="true" value="1" name="active_status">
+                                        Yes
+                                        <i class="fa fa-circle-o small"></i>
+                                    </label>
+                                </div>
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="0" name="active_status" >
+                                        No 
+                                        <i class="fa fa-circle-o small"></i>
+                                    </label>
+                                </div>
+
                             </div>
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
@@ -289,41 +340,41 @@
 
                     <script type="text/javascript">
 
-                        $(function() {
-                            var btnUpload = $('#upload');
-                            var status = $('#status');
-                            new AjaxUpload(btnUpload, {
-                                action: '<?PHP echo site_url(); ?>/users/upload_file',
-                                name: 'uploadfile',
-                                onSubmit: function(file, ext) {
-                                    if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                                        // extension is not allowed 
-                                        status.text('Only JPG, PNG or GIF files are allowed');
-                                        return false;
-                                    }
-                                    //status.text('Uploading...Please wait');
-                                    $("#sta").html("<img src='<?php echo base_url(); ?>/application_resources/img/ajaxloader.gif' />");
+                                    $(function() {
+                                        var btnUpload = $('#upload');
+                                        var status = $('#status');
+                                        new AjaxUpload(btnUpload, {
+                                            action: '<?PHP echo site_url(); ?>/users/upload_file',
+                                            name: 'uploadfile',
+                                            onSubmit: function(file, ext) {
+                                                if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                                    // extension is not allowed 
+                                                    status.text('Only JPG, PNG or GIF files are allowed');
+                                                    return false;
+                                                }
+                                                //status.text('Uploading...Please wait');
+                                                $("#sta").html("<img src='<?php echo base_url(); ?>/application_resources/img/ajaxloader.gif' />");
 
-                                },
-                                onComplete: function(file, response) {
-                                    //On completion clear the status
-                                    //status.text('');
-                                    $("#sta").html("");
-                                    //Add uploaded file to list
-                                    if (response != "error") {
+                                            },
+                                            onComplete: function(file, response) {
+                                                //On completion clear the status
+                                                //status.text('');
+                                                $("#sta").html("");
+                                                //Add uploaded file to list
+                                                if (response != "error") {
 
-                                        $('#files').html("");
-                                        $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/user_avatar/' + response + '" alt="" /><br />');
-                                        picFileName = response;
-                                        document.getElementById('image').value = file;
-                                        document.getElementById('pro_image').value = response;
-                                    } else {
-                                        $('<div></div>').appendTo('#files').text(file).addClass('error');
-                                    }
-                                }
-                            });
+                                                    $('#files').html("");
+                                                    $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/user_avatar/' + response + '" alt="" width="100px" height="100px" /><br />');
+                                                    picFileName = response;
+                                                    document.getElementById('image').value = file;
+                                                    document.getElementById('pro_image').value = response;
+                                                } else {
+                                                    $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                                }
+                                            }
+                                        });
 
-                        });
+                                    });
 
                     </script>
 
@@ -334,7 +385,7 @@
                             <label class="col-sm-3 control-label">Upload Photo</label>
                             <div class="col-sm-5">
                                 <div id="upload">
-                                    <input type="text" id="image" name="image"/><input type="button"  value="Browse" id="browse" class="da-button gray "/>
+                                    <input type="text" id="image" name="image"/><input type="button"  value="Browse" id="browse" class="btn btn-default "/>
                                     <input type="text" id="pro_image" name="pro_image" style="visibility: hidden" />
 
                                 </div>
@@ -380,6 +431,8 @@
         // Load Datatables and run plugin on tables 
         LoadDataTablesScripts(AllTables);
         LoadBootstrapValidatorScript(usersAddForm);
+        $('#reg_valid_til').datepicker({setDate: new Date()});
+        $('#dob').datepicker({setDate: new Date()});
     });
 
 </script>

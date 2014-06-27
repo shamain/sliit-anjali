@@ -14,7 +14,7 @@
                 <form id="edit_course_student_form" name="edit_course_student_form" class="form-horizontal bootstrap-validator-form">
                     <div class="modal-header tiles green text-center">
 
-                        <i class="fa fa-desktop fa-4x"></i>
+                        <i class="fa fa-female fa-4x"></i>
                         <h4 id="edit_course_student_modalLabel" class="semi-bold text-white">Edit course student</h4>
                         <p class="no-margin text-white">Include course student details here.</p>
                         <br>

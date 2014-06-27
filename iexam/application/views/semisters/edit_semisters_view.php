@@ -46,3 +46,7 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    $('#basic_setting_parent_menu').addClass('active-parent active');
+    $('#semister_menu').removeClass('active-parent active');
+</script>

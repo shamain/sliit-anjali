@@ -35,7 +35,7 @@ class Examination_types_service extends CI_Model {
     function update_examination_type($examination_type_model) {
 
         $data = array(
-            'ExaminaionType' => $examination_type_model->setExaminationType()
+            'ExaminationType' => $examination_type_model->getExaminationType()
         );
 
         $this->db->where('ExaminationTypeID', $examination_type_model->getExaminationTypeID());

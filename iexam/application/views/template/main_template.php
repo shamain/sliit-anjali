@@ -112,12 +112,12 @@
                             </a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">
+                            <a href="#" class="dropdown-toggle" id="basic_setting_parent_menu">
                                 <i class="fa fa-cog"></i>
                                 <span class="hidden-xs">Basic Settings</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/semister/semister_controller/manage_semisters">Manage Semesters</a></li>
+                                <li><a id="semister_menu" class="ajax-link" href="<?php echo site_url(); ?>/semister/semister_controller/manage_semisters">Manage Semesters</a></li>
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/subjects/subjects_controller/manage_subjects">Manage Subjects</a></li>
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/designations/designations_controller/manage_designations">Manage Designations</a></li>
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/marital_statuses/marital_statuses_controller/manage_marital_statuses">Manage Marital Statuses</a></li>
@@ -130,6 +130,7 @@
                                 <span class="hidden-xs">Examinations</span>
                             </a>
                             <ul class="dropdown-menu">
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/examinations/exams_controller/manage_examinations">Manage Exams</a></li>
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/examination_types/examination_types_controller/manage_examination_types">Manage Exam Types</a></li>
 
                             </ul>
@@ -157,7 +158,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/courses/courses_controller/manage_courses">Manage Courses</a></li>
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/courses/course_instructor_controller/manage_instructors">Manage Course Instructor</a></li>
-                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/courses/courses_controller/manage_courses">Manage Course Students</a></li>
+                                <li><a class="ajax-link" href="<?php echo site_url(); ?>/courses/course_student_controller/manage_course_students">Manage Course Students</a></li>
 
                             </ul>
                         </li>
@@ -199,6 +200,7 @@
         <script src="<?php echo base_url(); ?>application_resources/plugins/tinymce/jquery.tinymce.min.js"></script>
         <!-- All functions for this theme + document.ready processing -->
         <script src="<?php echo base_url(); ?>application_resources/js/devoops.js"></script>
+        <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js"></script>
 
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_basic.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_exam.js"></script>

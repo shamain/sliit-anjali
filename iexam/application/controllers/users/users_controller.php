@@ -83,10 +83,16 @@ class Users_controller extends CI_Controller {
     function edit_user_view($id) {
 
         $users_service = new Users_service();
+        $designations_service = new Designations_service();
+        $marital_statuses_service = new Marital_statuses_service();
+        $user_level_service = new User_levels_service();
 
 
         $data['heading'] = "Edit User";
         $data['user'] = $users_service->get_user_by_id($id);
+        $data['designations'] = $designations_service->get_all_designations();
+        $data['marital_statuses'] = $marital_statuses_service->get_all_marital_statuses();
+        $data['user_levels'] = $user_level_service->get_all_user_levels();
 
 
         $partials = array('content' => 'users/edit_users_view');

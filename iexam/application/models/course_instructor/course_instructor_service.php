@@ -43,7 +43,7 @@ class Course_instructor_service extends CI_Model {
         $data = array(
             'CourseID' => $course_instructor_model->getCourseID(),
             'Year' => $course_instructor_model->getYear(),
-            'SemisterID' => $course_instructor_model->getSemesterID(),
+            'SemisterID' => $course_instructor_model->getSemisterID(),
             'InstructorID' => $course_instructor_model->getInstructorID()
         );
 

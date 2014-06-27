@@ -3,7 +3,7 @@
         <div class="box">
             <div class="box-header">
                 <div class="box-name">
-                    <i class="fa fa-file"></i>
+                    <i class="fa fa-female"></i>
                     <span>Course Students</span>
                 </div>
                 <div class="box-icons">
@@ -22,7 +22,7 @@
 
             <div class="box-content">
                 <button class="btn btn-success" type="button" id="add_course_student_btn" data-toggle="modal" data-target="#add_course_student_modal">
-                    <i class="fa fa-plus"></i>
+                    Add Course Student
                 </button>
             </div>
 
@@ -70,10 +70,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="add_course_student_form" name="add_course_student_form" class="form-horizontal bootstrap-validator-form">
-                <div class="modal-header tiles green">
+                <div class="modal-header tiles green text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
-                    <i class="fa fa-desktop fa-4x"></i>
+                    <i class="fa fa-female fa-4x"></i>
                     <h4 id="add_course_student_modalLabel" class="semi-bold text-white">It's a new course student</h4>
                     <p class="no-margin text-white">Include course student details here.</p>
                     <br>

@@ -47,9 +47,10 @@ class Course_instructor_controller extends CI_Controller {
 
 
         $course_instructor_model->setCourseID($this->input->post('course_id', TRUE));
-        $course_instructor_model->setSemesterID($this->input->post('semester_id', TRUE));
+        $course_instructor_model->setSemisterID($this->input->post('semester_id', TRUE));
         $course_instructor_model->setYear($this->input->post('year', TRUE));
         $course_instructor_model->setInstructorID($this->input->post('instructor_id', TRUE));
+        $course_instructor_model->setDelInd('1');
 
 
         echo $course_instructor_service->add_new_course_instructor($course_instructor_model);
@@ -80,7 +81,7 @@ class Course_instructor_controller extends CI_Controller {
 
 
         $course_instructor_model->setCourseID($this->input->post('course_id', TRUE));
-        $course_instructor_model->setSemesterID($this->input->post('semester_id', TRUE));
+        $course_instructor_model->setSemisterID($this->input->post('semester_id', TRUE));
         $course_instructor_model->setYear($this->input->post('year', TRUE));
         $course_instructor_model->setInstructorID($this->input->post('instructor_id', TRUE));
 

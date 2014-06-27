@@ -3,7 +3,7 @@
         <div class="box">
             <div class="box-header">
                 <div class="box-name">
-                    <i class="fa fa-file"></i>
+                    <i class="fa fa-globe"></i>
                     <span>Course Instructors</span>
                 </div>
                 <div class="box-icons">
@@ -22,7 +22,7 @@
 
             <div class="box-content">
                 <button class="btn btn-success" type="button" id="add_course_instructor_btn" data-toggle="modal" data-target="#add_course_instructor_modal">
-                    <i class="fa fa-plus"></i>
+                    Add Course Instructor
                 </button>
             </div>
 
@@ -73,10 +73,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="add_course_instructor_form" name="add_course_instructor_form" class="form-horizontal bootstrap-validator-form">
-                <div class="modal-header tiles green">
+                <div class="modal-header tiles green text-center">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <br>
-                    <i class="fa fa-desktop fa-4x"></i>
+                    <i class="fa fa-globe fa-4x"></i>
                     <h4 id="add_course_instructor_modalLabel" class="semi-bold text-white">It's a new course instructor</h4>
                     <p class="no-margin text-white">Include course instructor details here.</p>
                     <br>
