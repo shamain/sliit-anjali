@@ -42,7 +42,7 @@
                                 <td><?php echo++$i; ?></td>
                                 <td><?php echo $user_level->userlevelname; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $user_level->userlevelid; ?>" title="Edit this User Level">
+                                    <a href="<?php echo site_url(); ?>/user_levels/user_levels_controller/edit_user_level_view/<?php echo $user_level->userlevelid; ?>" title="Edit this User Level">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this User Level" onclick="delete_userlevel(<?php echo $user_level->userlevelid; ?>)">

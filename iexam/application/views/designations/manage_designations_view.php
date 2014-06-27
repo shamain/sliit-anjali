@@ -31,7 +31,7 @@
                                 <td><?php echo++$i; ?></td>
                                 <td><?php echo $designation->Designation; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $designation->DesignationID; ?>" title="Edit this Designation">
+                                    <a href="<?php echo site_url(); ?>/designations/designations_controller/edit_designation_view/<?php echo $designation->DesignationID; ?>" title="Edit this Designation">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Designation" onclick="delete_designation(<?php echo $designation->DesignationID; ?>)">

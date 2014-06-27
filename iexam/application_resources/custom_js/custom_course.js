@@ -61,6 +61,47 @@ function courseAddForm() {
 }
 
 
+function courseEditForm() {
+    $('#edit_course_form').bootstrapValidator({
+        message: 'This value is not valid',
+        fields: {
+            course_code: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            },
+            course_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            },
+            subject_id: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            }
+
+        }, submitHandler: function(form) {
+            $.post(site_url + '/courses/courses_controller/edit_course', $('#edit_course_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_course_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Course updated successfully.</div>');
+                    edit_course_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_course_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Course has failed.</div>');
+                }
+            });
+        }
+    });
+}
+
 //delete Course
 function delete_course(id) {
 
@@ -84,3 +125,10 @@ function delete_course(id) {
     }
 }
 
+
+
+
+$(document).ready(function() {
+    LoadBootstrapValidatorScript(courseEditForm);
+
+});

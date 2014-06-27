@@ -141,6 +141,35 @@ function subjectAddForm() {
     });
 }
 
+
+
+function subjectEditForm() {
+    $('#edit_subject_form').bootstrapValidator({
+        message: 'This value is not valid',
+        fields: {
+            subject_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            }
+
+        }, submitHandler: function(form) {
+            $.post(site_url + '/subjects/subjects_controller/edit_subject', $('#edit_subject_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_subject_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Subject updated successfully.</div>');
+                    edit_subject_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_subject_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Subject has failed.</div>');
+                }
+            });
+        }
+    });
+}
+
 //delete Subjects
 function delete_subject(id) {
 
@@ -200,6 +229,33 @@ function designationAddForm() {
                     location.reload();
                 } else {
                     $("#add_designation_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Designation has failed.</div>');
+                }
+            });
+        }
+    });
+}
+
+function designationEditForm() {
+    $('#edit_designation_form').bootstrapValidator({
+        message: 'This value is not valid',
+        fields: {
+            designation_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            }
+
+        }, submitHandler: function(form) {
+            $.post(site_url + '/designations/designations_controller/edit_designation', $('#edit_designation_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_designation_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Designation updated successfully.</div>');
+                    edit_designation_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_designation_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Designation has failed.</div>');
                 }
             });
         }
@@ -274,6 +330,33 @@ function maritalstatusAddForm() {
     });
 }
 
+
+function maritalstatusEditForm() {
+    $('#edit_marital_status_form').bootstrapValidator({
+        message: 'This value is not valid',
+        fields: {
+            status_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            }
+
+        }, submitHandler: function(form) {
+            $.post(site_url + '/marital_statuses/marital_statuses_controller/edit_marital_status', $('#edit_marital_status_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_marital_status_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Marital Status updated successfully.</div>');
+                    edit_marital_status_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_marital_status_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Marital Status has failed.</div>');
+                }
+            });
+        }
+    });
+}
 
 
 
@@ -359,5 +442,8 @@ function LoginForm() {
 
 $(document).ready(function() {
     LoadBootstrapValidatorScript(semisterEditForm);
+    LoadBootstrapValidatorScript(subjectEditForm);
+    LoadBootstrapValidatorScript(designationEditForm);
+    LoadBootstrapValidatorScript(maritalstatusEditForm);
 });
 

@@ -57,12 +57,14 @@ class Courses_controller extends CI_Controller {
     function edit_course_view($id) {
 
         $courses_service = new Courses_service();
+        $subject_service = new Subjects_service();
 
         $data['heading'] = "Edit Course";
         $data['course'] = $courses_service->get_course_by_id($id);
+        $data['subjects'] = $subject_service->get_all_subjects();
 
 
-        $partials = array('content' => 'semisters/edit_semisters_view');
+        $partials = array('content' => 'courses/edit_courses_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 

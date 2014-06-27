@@ -31,7 +31,7 @@
                                 <td><?php echo++$i; ?></td>
                                 <td><?php echo $marital_statuse->MaritalStatus; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $marital_statuse->MaritalStatusID; ?>" title="Edit this Marital Statuse">
+                                    <a href="<?php echo site_url(); ?>/marital_statuses/marital_statuses_controller/edit_marital_status_view/<?php echo $marital_statuse->MaritalStatusID; ?>" title="Edit this Marital Statuse">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Marital Status" onclick="delete_maritalstatus(<?php echo $marital_statuse->MaritalStatusID; ?>)">

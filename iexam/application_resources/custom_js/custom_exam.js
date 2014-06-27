@@ -46,6 +46,33 @@ function examtypeAddForm() {
     });
 }
 
+function examtypeEditForm() {
+    $('#edit_exam_type_form').bootstrapValidator({
+       message: 'This value is not valid',
+        fields: {
+            exam_type_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            }
+
+        }, submitHandler: function(form) {
+            $.post(site_url + '/examination_types/examination_types_controller/edit_examination_type', $('#edit_exam_type_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_exam_type_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Exam Type updated successfully.</div>');
+                    edit_exam_type_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_exam_type_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Exam Type has failed.</div>');
+                }
+            });
+        }
+    });
+}
+
 
 //delete Exam Type
 function delete_examtype(id) {
@@ -70,3 +97,13 @@ function delete_examtype(id) {
     }
 }
 
+
+
+
+
+
+
+$(document).ready(function() {
+    LoadBootstrapValidatorScript(examtypeEditForm);
+
+});

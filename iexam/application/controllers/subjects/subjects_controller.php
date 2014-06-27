@@ -56,7 +56,7 @@ class Subjects_controller extends CI_Controller {
         $data['subject'] = $subjects_service->get_subject_by_id($id);
 
 
-        $partials = array('content' => 'semisters/edit_semisters_view');
+        $partials = array('content' => 'subjects/edit_subjects_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 

@@ -47,6 +47,34 @@ function userlevelAddForm() {
 }
 
 
+function userlevelEditForm() {
+    $('#edit_user_level_form').bootstrapValidator({
+        message: 'This value is not valid',
+        fields: {
+            user_level_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'This feild is required \n'
+                    }
+                }
+            }
+
+        }, submitHandler: function(form) {
+            $.post(site_url + '/user_levels/user_levels_controller/edit_user_level', $('#edit_user_level_form').serialize(), function(msg)
+            {
+                if (msg == 1) {
+                    $("#edit_user_level_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The User Level updated successfully.</div>');
+                    edit_user_level_form.reset();
+                    location.reload();
+                } else {
+                    $("#edit_user_level_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The User Level has failed.</div>');
+                }
+            });
+        }
+    });
+}
+
+
 //delete User Level
 function delete_userlevel(id) {
 
@@ -111,3 +139,8 @@ function usersAddForm() {
         }
     });
 }
+
+$(document).ready(function() {
+    LoadBootstrapValidatorScript(userlevelEditForm);
+
+});

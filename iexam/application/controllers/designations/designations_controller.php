@@ -55,11 +55,11 @@ class Designations_controller extends CI_Controller {
         $data['designation'] = $designations_service->get_designation_by_id($id);
 
 
-        $partials = array('content' => 'semisters/edit_semisters_view');
+        $partials = array('content' => 'designations/edit_designations_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 
-    function edit_subject() {
+    function edit_designation() {
         $designations_model = new Designations_model();
         $designations_service = new Designations_service();
 

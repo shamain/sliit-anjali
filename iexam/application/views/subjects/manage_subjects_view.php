@@ -6,14 +6,14 @@
                     <i class="fa fa-edit"></i>
                     <span>Subjects</span>
                 </div>
-               
-               
+
+
             </div>
-<div class="box-content">
-            <button class="btn btn-success" type="button" id="add_subject_btn" data-toggle="modal" data-target="#add_subject_modal">
-               Add Subject Type
-            </button>
-</div>
+            <div class="box-content">
+                <button class="btn btn-success" type="button" id="add_subject_btn" data-toggle="modal" data-target="#add_subject_modal">
+                    Add Subject Type
+                </button>
+            </div>
 
             <div class="box-content">
                 <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="subject_table">
@@ -30,10 +30,10 @@
                         foreach ($subjects as $subject) {
                             ?> 
                             <tr id="subject_<?php echo $subject->SubjectID; ?>">
-                                <td><?php echo++$i; ?></td>
+                                <td><?php echo ++$i; ?></td>
                                 <td><?php echo $subject->Subject; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $subject->SubjectID; ?>" title="Edit this Subject">
+                                    <a href="<?php echo site_url(); ?>/subjects/subjects_controller/edit_subject_view/<?php echo $subject->SubjectID; ?>" title="Edit this Subject">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Subject" onclick="delete_subject(<?php echo $subject->SubjectID; ?>)">
@@ -67,7 +67,7 @@
                 <div class="modal-body">
                     <fieldset>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Semester</label>
+                            <label class="col-sm-3 control-label">Subject</label>
                             <div class="col-sm-5">
                                 <input id="subject_name" class="form-control" type="text" name="subject_name" >  
                             </div>
@@ -96,20 +96,20 @@
 
 <script>
 
-                                        function AllTables() {
-                                            subjectTable();
-                                            LoadSelect2Script(MakeSelect2);
-                                        }
-                                        function MakeSelect2() {
-                                            $('select').select2();
-                                            $('.dataTables_filter').each(function() {
-                                                $(this).find('label input[type=text]').attr('placeholder', 'Search');
-                                            });
-                                        }
-                                        $(document).ready(function() {
-                                            // Load Datatables and run plugin on tables 
-                                            LoadDataTablesScripts(AllTables);
-                                            LoadBootstrapValidatorScript(subjectAddForm);
-                                        });
+    function AllTables() {
+        subjectTable();
+        LoadSelect2Script(MakeSelect2);
+    }
+    function MakeSelect2() {
+        $('select').select2();
+        $('.dataTables_filter').each(function() {
+            $(this).find('label input[type=text]').attr('placeholder', 'Search');
+        });
+    }
+    $(document).ready(function() {
+        // Load Datatables and run plugin on tables 
+        LoadDataTablesScripts(AllTables);
+        LoadBootstrapValidatorScript(subjectAddForm);
+    });
 
 </script>

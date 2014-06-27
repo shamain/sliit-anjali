@@ -31,7 +31,7 @@
                                 <td><?php echo++$i; ?></td>
                                 <td><?php echo $examination_type->ExaminationType; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/project/project_controller/edit_project_view/<?php echo $examination_type->ExaminationTypeID; ?>" title="Edit this Exam Type">
+                                    <a href="<?php echo site_url(); ?>/examination_types/examination_types_controller/edit_examination_type_view/<?php echo $examination_type->ExaminationTypeID; ?>" title="Edit this Exam Type">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Exam Type" onclick="delete_examtype(<?php echo $examination_type->ExaminationTypeID; ?>)">

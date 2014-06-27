@@ -55,7 +55,7 @@ class User_levels_controller extends CI_Controller {
         $data['user_level'] = $user_level_service->get_user_level_by_id($id);
 
 
-        $partials = array('content' => 'semisters/edit_semisters_view');
+        $partials = array('content' => 'user_levels/edit_user_levels_view');
         $this->template->load('template/main_template', $partials, $data);
     }
 
