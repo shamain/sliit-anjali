@@ -66,10 +66,8 @@
 <!-- All functions for this theme + document.ready processing -->
 <script src="<?php echo base_url(); ?>application_resources/js/devoops.js"></script>
 
-<script src="<?php echo base_url(); ?>application_resources/custom_js/custom_basic.js"></script>
-<script src="<?php echo base_url(); ?>application_resources/custom_js/custom_exam.js"></script>
-<script src="<?php echo base_url(); ?>application_resources/custom_js/custom_course.js"></script>
-<script src="<?php echo base_url(); ?>application_resources/custom_js/custom_users.js"></script>
+<script src="<?php echo base_url(); ?>application_resources/custom_js/login.js"></script>
+
 <script>
 
     $(document).ready(function() {
