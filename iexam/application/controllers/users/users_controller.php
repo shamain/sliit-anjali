@@ -67,7 +67,7 @@ class Users_controller extends CI_Controller {
         $users_model->setDateOfBirth($this->input->post('dob', TRUE));
         $users_model->setRegisteredOn(date('Y-m-d H:i:s'));
         $users_model->setRegistrationValidTill($this->input->post('reg_valid_til', TRUE));
-        $users_model->setPhotoPath($this->input->post('photo_path', TRUE));
+        $users_model->setPhotoPath($this->input->post('pro_image', TRUE));
         $users_model->setDelInd('1');
 
         echo $users_service->add_new_users($users_model);
@@ -112,7 +112,7 @@ class Users_controller extends CI_Controller {
         $users_model->setNICNumber($this->input->post('nic', TRUE));
         $users_model->setDateOfBirth($this->input->post('dob', TRUE));
         $users_model->setRegistrationValidTill($this->input->post('reg_valid_til', TRUE));
-        $users_model->setPhotoPath($this->input->post('photo_path', TRUE));
+        $users_model->setPhotoPath($this->input->post('pro_image', TRUE));
 
         $users_model->setUserID($this->input->post('user_id', TRUE));
 

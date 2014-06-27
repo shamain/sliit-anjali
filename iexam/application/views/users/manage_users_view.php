@@ -49,7 +49,7 @@
                         foreach ($users as $user) {
                             ?> 
                             <tr id="user_<?php echo $user->UserID; ?>">
-                                <td><?php echo++$i; ?></td>
+                                <td><?php echo ++$i; ?></td>
                                 <td><?php echo $user->FirstName . ' ' . $user->MiddleName . ' ' . $user->LastName; ?></td>
                                 <td><?php echo $user->Designation; ?></td>
                                 <td><?php echo $user->userlevelname; ?></td>
@@ -256,7 +256,7 @@
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
                     </fieldset>
-                    
+
                     <fieldset>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Date Of Birth</label>
@@ -266,7 +266,7 @@
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
                     </fieldset>
-                    
+
                     <fieldset>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Registration Valid Till</label>
@@ -276,7 +276,7 @@
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
                     </fieldset>
-                    
+
                     <fieldset>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Activated</label>
@@ -286,14 +286,62 @@
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
                     </fieldset>
-                    
+
+                    <script type="text/javascript">
+
+                        $(function() {
+                            var btnUpload = $('#upload');
+                            var status = $('#status');
+                            new AjaxUpload(btnUpload, {
+                                action: '<?PHP echo site_url(); ?>/users/upload_file',
+                                name: 'uploadfile',
+                                onSubmit: function(file, ext) {
+                                    if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                        // extension is not allowed 
+                                        status.text('Only JPG, PNG or GIF files are allowed');
+                                        return false;
+                                    }
+                                    //status.text('Uploading...Please wait');
+                                    $("#sta").html("<img src='<?php echo base_url(); ?>/application_resources/img/ajaxloader.gif' />");
+
+                                },
+                                onComplete: function(file, response) {
+                                    //On completion clear the status
+                                    //status.text('');
+                                    $("#sta").html("");
+                                    //Add uploaded file to list
+                                    if (response != "error") {
+
+                                        $('#files').html("");
+                                        $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/user_avatar/' + response + '" alt="" /><br />');
+                                        picFileName = response;
+                                        document.getElementById('image').value = file;
+                                        document.getElementById('pro_image').value = response;
+                                    } else {
+                                        $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                    }
+                                }
+                            });
+
+                        });
+
+                    </script>
+
+
+
                     <fieldset>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Upload Photo</label>
                             <div class="col-sm-5">
-                                <input id="photo_path" class="form-control" type="text" name="photo_path" >  
+                                <div id="upload">
+                                    <input type="text" id="image" name="image"/><input type="button"  value="Browse" id="browse" class="da-button gray "/>
+                                    <input type="text" id="pro_image" name="pro_image" style="visibility: hidden" />
+
+                                </div>
+                                <div id="sta"><span id="status" ></span></div>
+                                <div id="files" ></div>
                             </div>
-                            <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
+
                         </div>
                     </fieldset>
 
@@ -318,20 +366,20 @@
 
 <script>
 
-                                        function AllTables() {
-                                            usersTable();
-                                            LoadSelect2Script(MakeSelect2);
-                                        }
-                                        function MakeSelect2() {
-                                            $('select').select2();
-                                            $('.dataTables_filter').each(function() {
-                                                $(this).find('label input[type=text]').attr('placeholder', 'Search');
-                                            });
-                                        }
-                                        $(document).ready(function() {
-                                            // Load Datatables and run plugin on tables 
-                                            LoadDataTablesScripts(AllTables);
-                                            LoadBootstrapValidatorScript(usersAddForm);
-                                        });
+    function AllTables() {
+        usersTable();
+        LoadSelect2Script(MakeSelect2);
+    }
+    function MakeSelect2() {
+        $('select').select2();
+        $('.dataTables_filter').each(function() {
+            $(this).find('label input[type=text]').attr('placeholder', 'Search');
+        });
+    }
+    $(document).ready(function() {
+        // Load Datatables and run plugin on tables 
+        LoadDataTablesScripts(AllTables);
+        LoadBootstrapValidatorScript(usersAddForm);
+    });
 
 </script>
