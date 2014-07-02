@@ -117,7 +117,7 @@
                                 <span class="hidden-xs">Basic Settings</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a id="semister_menu" class="ajax-link" href="<?php echo site_url(); ?>/semister/semister_controller/manage_semisters">Manage Semesters</a></li>
+                                <li><a class="ajax-link " href="<?php echo site_url(); ?>/semister/semister_controller/manage_semisters">Manage Semesters</a></li>
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/subjects/subjects_controller/manage_subjects">Manage Subjects</a></li>
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/designations/designations_controller/manage_designations">Manage Designations</a></li>
                                 <li><a class="ajax-link" href="<?php echo site_url(); ?>/marital_statuses/marital_statuses_controller/manage_marital_statuses">Manage Marital Statuses</a></li>
@@ -195,12 +195,14 @@
         <script src="<?php echo base_url(); ?>application_resources/plugins/jquery-ui/jquery-ui.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrap/bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>application_resources/plugins/bootstrapvalidator/bootstrapValidator.min.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/justified-gallery/jquery.justifiedgallery.min.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/tinymce/tinymce.min.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/plugins/tinymce/jquery.tinymce.min.js"></script>
         <!-- All functions for this theme + document.ready processing -->
         <script src="<?php echo base_url(); ?>application_resources/js/devoops.js"></script>
-        <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js"></script>
+        
+        
 
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_basic.js"></script>
         <script src="<?php echo base_url(); ?>application_resources/custom_js/custom_exam.js"></script>

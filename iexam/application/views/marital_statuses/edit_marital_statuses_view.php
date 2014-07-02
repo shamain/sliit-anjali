@@ -36,7 +36,7 @@
                     <div id="edit_marital_status_msg" class="form-row"> </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" onclick="LoadAjaxContent('<?php echo site_url(); ?>/marital_statuses/marital_statuses_controller/manage_marital_statuses')">Back</button>
 
                     </div>
 
@@ -46,3 +46,11 @@
     </div>
 </div>
 
+<script>
+
+
+                            $(document).ready(function() {
+                                LoadBootstrapValidatorScript(maritalstatusEditForm);
+                            });
+
+</script>

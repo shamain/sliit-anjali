@@ -36,7 +36,7 @@
                     <div id="edit_user_level_msg" class="form-row"> </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" onclick="LoadAjaxContent('<?php echo site_url(); ?>/user_levels/user_levels_controller/manage_user_levels')">Back</button>
 
                     </div>
 
@@ -46,3 +46,11 @@
     </div>
 </div>
 
+<script>
+
+
+                            $(document).ready(function() {
+                                LoadBootstrapValidatorScript(userlevelEditForm);
+                            });
+
+</script>

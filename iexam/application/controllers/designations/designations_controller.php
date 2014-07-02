@@ -55,8 +55,10 @@ class Designations_controller extends CI_Controller {
         $data['designation'] = $designations_service->get_designation_by_id($id);
 
 
-        $partials = array('content' => 'designations/edit_designations_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'designations/edit_designations_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        
+        $this->load->view('designations/edit_designations_view', $data);
     }
 
     function edit_designation() {

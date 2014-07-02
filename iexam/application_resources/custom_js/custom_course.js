@@ -51,7 +51,7 @@ function courseAddForm() {
                 if (msg == 1) {
                     $("#add_course_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Course has been added.</div>');
                     add_course_form.reset();
-                    location.reload();
+                     LoadAjaxContent(site_url+'/courses/courses_controller/manage_courses');
                 } else {
                     $("#add_course_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Course has failed.</div>');
                 }
@@ -93,7 +93,7 @@ function courseEditForm() {
                 if (msg == 1) {
                     $("#edit_course_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Course updated successfully.</div>');
                     edit_course_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url+'/courses/courses_controller/manage_courses');
                 } else {
                     $("#edit_course_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Course has failed.</div>');
                 }
@@ -179,7 +179,7 @@ function courseInstructorAddForm() {
                 if (msg == 1) {
                     $("#add_course_instructor_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Course Instructor has been added.</div>');
                     add_course_instructor_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url+'/courses/course_instructor_controller/manage_instructors');
                 } else {
                     $("#add_course_instructor_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Course Instructor has failed.</div>');
                 }
@@ -227,7 +227,7 @@ function courseInstructorEditForm() {
                 if (msg == 1) {
                     $("#edit_course_instructor_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Course Instructor updated successfully.</div>');
                     edit_course_instructor_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url+'/courses/course_instructor_controller/manage_instructors');
                 } else {
                     $("#edit_course_instructor_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Course Instructor has failed.</div>');
                 }
@@ -300,7 +300,7 @@ function courseStudentAddForm() {
                 if (msg == 1) {
                     $("#add_course_student_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Course Student has been added.</div>');
                     add_course_student_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url+'/courses/course_student_controller/manage_course_students');
                 } else {
                     $("#add_course_student_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Course Student has failed.</div>');
                 }
@@ -334,7 +334,7 @@ function courseStudentEditForm() {
                 if (msg == 1) {
                     $("#edit_course_student_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Course Student updated successfully.</div>');
                     edit_course_student_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url+'/courses/course_student_controller/manage_course_students');
                 } else {
                     $("#edit_course_student_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Course Student has failed.</div>');
                 }

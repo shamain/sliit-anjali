@@ -6,14 +6,14 @@
                     <i class="fa fa-flag-o"></i>
                     <span>Semesters</span>
                 </div>
-              
+
                 <div class="no-move"></div>
             </div>
-             <div class="box-content">
-            <button class="btn btn-success" type="button" id="add_semister_btn" data-toggle="modal" data-target="#add_semister_modal">
-                Add Semester Type
-            </button>
-             </div>
+            <div class="box-content">
+                <button class="btn btn-success" type="button" id="add_semister_btn" data-toggle="modal" data-target="#add_semister_modal">
+                    Add Semester Type
+                </button>
+            </div>
             <div class="box-content">
                 <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="semester_table">
                     <thead>
@@ -32,7 +32,7 @@
                                 <td><?php echo++$i; ?></td>
                                 <td><?php echo $semester->Semester; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/semister/semister_controller/edit_semister_view/<?php echo $semester->SemesterID; ?>" title="Edit this Semester">
+                                    <a style="cursor: pointer" onclick="LoadAjaxContent('<?php echo site_url(); ?>/semister/semister_controller/edit_semister_view/<?php echo $semester->SemesterID; ?>')"  title="Edit this Semester">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Semester" onclick="delete_semester(<?php echo $semester->SemesterID; ?>)">
@@ -74,7 +74,7 @@
                         </div>
                     </fieldset>
 
-                   
+
 
                 </div>
                 <div id="add_semister_msg" class="form-row"> </div>
@@ -95,20 +95,21 @@
 
 <script>
 
-                                        function AllTables() {
-                                            semisterTable();
-                                            LoadSelect2Script(MakeSelect2);
-                                        }
-                                        function MakeSelect2() {
-                                            $('select').select2();
-                                            $('.dataTables_filter').each(function() {
-                                                $(this).find('label input[type=text]').attr('placeholder', 'Search');
-                                            });
-                                        }
-                                        $(document).ready(function() {
-                                            // Load Datatables and run plugin on tables 
-                                            LoadDataTablesScripts(AllTables);
-                                            LoadBootstrapValidatorScript(semisterAddForm);
+                                    function AllTables() {
+                                        semisterTable();
+                                        LoadSelect2Script(MakeSelect2);
+                                    }
+                                    function MakeSelect2() {
+                                        $('select').select2();
+                                        $('.dataTables_filter').each(function() {
+                                            $(this).find('label input[type=text]').attr('placeholder', 'Search');
                                         });
+                                    }
+                                    $(document).ready(function() {
+                                        // Load Datatables and run plugin on tables 
+                                        LoadDataTablesScripts(AllTables);
+                                        LoadBootstrapValidatorScript(semisterAddForm);
+                                        LoadBootstrapValidatorScript(semisterEditForm);
+                                    });
 
 </script>

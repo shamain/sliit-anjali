@@ -31,7 +31,7 @@ class Subjects_controller extends CI_Controller {
     function add_new_subject() {
 
 
-        $subjects_model = new Subjects_model();
+//        $subjects_model = new Subjects_model();
         $subjects_service = new Subjects_service();
 
         $subjects_model->setSubject($this->input->post('subject_name', TRUE));
@@ -56,8 +56,10 @@ class Subjects_controller extends CI_Controller {
         $data['subject'] = $subjects_service->get_subject_by_id($id);
 
 
-        $partials = array('content' => 'subjects/edit_subjects_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'subjects/edit_subjects_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        
+        $this->load->view('subjects/edit_subjects_view', $data);
     }
 
     function edit_subject() {

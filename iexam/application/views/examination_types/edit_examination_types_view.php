@@ -34,7 +34,7 @@
                     <div id="edit_exam_type_msg" class="form-row"> </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" onclick="LoadAjaxContent('<?php echo site_url(); ?>/examination_types/examination_types_controller/manage_examination_types')">Back</button>
 
                     </div>
 
@@ -44,3 +44,11 @@
     </div>
 </div>
 
+<script>
+
+
+                            $(document).ready(function() {
+                                LoadBootstrapValidatorScript(examtypeEditForm);
+                            });
+
+</script>

@@ -49,7 +49,7 @@
                                 <td><?php echo $instructor->Semester; ?></td>
                                 <td><?php echo $instructor->Instructor; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/courses/course_instructor_controller/delete_course_instructor/<?php echo $instructor->CourseInstructorID; ?>" title="Edit this Course Instructor">
+                                    <a style="cursor: pointer" onclick="LoadAjaxContent('<?php echo site_url(); ?>/courses/course_instructor_controller/edit_course_instructor_view/<?php echo $instructor->CourseInstructorID; ?>')"  title="Edit this Course Instructor">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Course Instructor" onclick="delete_course_instructor(<?php echo $instructor->CourseInstructorID; ?>)">

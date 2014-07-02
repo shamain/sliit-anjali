@@ -55,8 +55,8 @@ class Semister_controller extends CI_Controller {
         $data['heading'] = "Edit Semister";
         $data['semister'] = $semister_service->get_semister_by_id($id);
 
-        $partials = array('content' => 'semisters/edit_semisters_view');
-        $this->template->load('template/main_template', $partials, $data);
+         $this->load->view('semisters/edit_semisters_view', $data);
+
     }
 
     function edit_semister() {

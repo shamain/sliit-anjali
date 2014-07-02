@@ -66,7 +66,7 @@
                     <div id="edit_course_msg" class="form-row"> </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" onclick="LoadAjaxContent('<?php echo site_url(); ?>/courses/courses_controller/manage_courses')">Back</button>
 
                     </div>
 
@@ -76,3 +76,11 @@
     </div>
 </div>
 
+<script>
+
+
+                            $(document).ready(function() {
+                                LoadBootstrapValidatorScript(courseEditForm);
+                            });
+
+</script>

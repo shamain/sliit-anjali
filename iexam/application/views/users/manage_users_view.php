@@ -84,7 +84,7 @@
                                     <?php
                                     if ($user->Activated == 1) {
                                         ?>
-                                    <code class="txt-success">Active</code>
+                                        <code class="txt-success">Active</code>
                                         <?php
                                     } else {
                                         ?>
@@ -94,7 +94,7 @@
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/users/users_controller/edit_user_view/<?php echo $user->UserID; ?>" title="Edit this User">
+                                    <a style="cursor: pointer" onclick="LoadAjaxContent('<?php echo site_url(); ?>/users/users_controller/edit_user_view/<?php echo $user->UserID; ?>')"  title="Edit this User">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this User" onclick="delete_user(<?php echo $user->UserID; ?>)">
@@ -339,7 +339,7 @@
                             <small class="help-block col-sm-offset-3 col-sm-9" style="display: none;"></small>
                         </div>
                     </fieldset>
-
+                    <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js"></script>
                     <script type="text/javascript">
 
                                     $(function() {

@@ -36,8 +36,8 @@ function userlevelAddForm() {
             {
                 if (msg == 1) {
                     $("#add_user_level_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The User Level has been added.</div>');
-      
-                    location.reload();
+
+                    LoadAjaxContent(site_url + '/user_levels/user_levels_controller/manage_user_levels');
                 } else {
                     $("#add_user_level_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The User Level has failed.</div>');
                 }
@@ -65,7 +65,7 @@ function userlevelEditForm() {
                 if (msg == 1) {
                     $("#edit_user_level_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The User Level updated successfully.</div>');
 
-                    location.reload();
+                    LoadAjaxContent(site_url + '/user_levels/user_levels_controller/manage_user_levels');
                 } else {
                     $("#edit_user_level_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The User Level has failed.</div>');
                 }
@@ -201,8 +201,7 @@ function usersAddForm() {
             {
                 if (msg == 1) {
                     $("#add_user_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The User  has been added.</div>');
-
-                    location.reload();
+                    LoadAjaxContent(site_url + '/users/users_controller/manage_users');
                 } else {
                     $("#add_user_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The User  has failed.</div>');
                 }
@@ -299,7 +298,7 @@ function usersEditForm() {
             {
                 if (msg == 1) {
                     $("#edit_user_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The User  updated successfully.</div>');
-                    location.reload();
+                    LoadAjaxContent(site_url + '/users/users_controller/manage_users');
                 } else {
                     $("#edit_user_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The User  has failed.</div>');
                 }
@@ -309,41 +308,7 @@ function usersEditForm() {
 }
 
 
-$(function() {
-    var btnUpload = $('#upload');
-    var status = $('#status');
-    new AjaxUpload(btnUpload, {
-        action: '../../upload_file',
-        name: 'uploadfile',
-        onSubmit: function(file, ext) {
-            if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
-                // extension is not allowed 
-                status.text('Only JPG, PNG or GIF files are allowed');
-                return false;
-            }
-            //status.text('Uploading...Please wait');
-            $("#sta").html("<img src='" + js_base_url + "/application_resources/img/ajaxloader.gif' />");
 
-        },
-        onComplete: function(file, response) {
-            //On completion clear the status
-            //status.text('');
-            $("#sta").html("");
-            //Add uploaded file to list
-            if (response != "error") {
-
-                $('#files').html("");
-                $('<div></div>').appendTo('#files').html('<img src="../../../../uploads/user_avatar/' + response + '" alt="" width="100px" height="100px" /><br />');
-                picFileName = response;
-                document.getElementById('image').value = file;
-                document.getElementById('pro_image').value = response;
-            } else {
-                $('<div></div>').appendTo('#files').text(file).addClass('error');
-            }
-        }
-    });
-
-});
 
 
 
@@ -351,7 +316,7 @@ $(function() {
 $(document).ready(function() {
 
     LoadBootstrapValidatorScript(userlevelEditForm);
-     LoadBootstrapValidatorScript(usersEditForm);
+    LoadBootstrapValidatorScript(usersEditForm);
 
 });
 

@@ -23,10 +23,10 @@ class Examination_types_controller extends CI_Controller {
         $data['heading'] = "Manage Exam Types";
         $data['examination_types'] = $examination_types_service->get_all_examination_types();
 
-        $partials = array('content' => 'examination_types/manage_examination_types_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'examination_types/manage_examination_types_view');
+//        $this->template->load('template/main_template', $partials, $data);
 
-//        $this->load->view('examination_types/manage_examination_types_view', $data);
+        $this->load->view('examination_types/manage_examination_types_view', $data);
     }
 
     function add_new_examination_type() {

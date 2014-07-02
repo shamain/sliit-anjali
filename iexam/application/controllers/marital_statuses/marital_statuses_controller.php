@@ -55,9 +55,11 @@ class Marital_statuses_controller extends CI_Controller {
         $data['heading'] = "Edit Marital Status";
         $data['marital_status'] = $marital_statuses_service->get_marital_status_by_id($id);
 
-
-        $partials = array('content' => 'marital_statuses/edit_marital_statuses_view');
-        $this->template->load('template/main_template', $partials, $data);
+//
+//        $partials = array('content' => 'marital_statuses/edit_marital_statuses_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        
+        $this->load->view('marital_statuses/edit_marital_statuses_view', $data);
     }
 
     function edit_marital_status() {

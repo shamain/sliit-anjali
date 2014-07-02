@@ -19,6 +19,7 @@ function semisterTable() {
 }
 
 
+
 function semisterAddForm() {
     $('#add_semister_form').bootstrapValidator({
         message: 'This value is not valid',
@@ -37,7 +38,7 @@ function semisterAddForm() {
                 if (msg == 1) {
                     $("#add_semister_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Semester has been added.</div>');
                     add_semister_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/semister/semister_controller/manage_semisters');
                 } else {
                     $("#add_semister_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Semester has failed.</div>');
                 }
@@ -66,7 +67,7 @@ function semisterEditForm() {
                 if (msg == 1) {
                     $("#edit_semister_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Semester updated successfully.</div>');
                     edit_semister_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/semister/semister_controller/manage_semisters');
                 } else {
                     $("#edit_semister_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Semester has failed.</div>');
                 }
@@ -132,7 +133,7 @@ function subjectAddForm() {
                 if (msg == 1) {
                     $("#add_subject_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Subject has been added.</div>');
                     add_subject_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/subjects/subjects_controller/manage_subjects');
                 } else {
                     $("#add_subject_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Subject has failed.</div>');
                 }
@@ -161,7 +162,7 @@ function subjectEditForm() {
                 if (msg == 1) {
                     $("#edit_subject_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Subject updated successfully.</div>');
                     edit_subject_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/subjects/subjects_controller/manage_subjects');
                 } else {
                     $("#edit_subject_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Subject has failed.</div>');
                 }
@@ -226,7 +227,7 @@ function designationAddForm() {
                 if (msg == 1) {
                     $("#add_designation_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Designation has been added.</div>');
                     add_designation_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/designations/designations_controller/manage_designations');
                 } else {
                     $("#add_designation_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Designation has failed.</div>');
                 }
@@ -253,7 +254,7 @@ function designationEditForm() {
                 if (msg == 1) {
                     $("#edit_designation_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Designation updated successfully.</div>');
                     edit_designation_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/designations/designations_controller/manage_designations');
                 } else {
                     $("#edit_designation_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Designation has failed.</div>');
                 }
@@ -321,7 +322,7 @@ function maritalstatusAddForm() {
                 if (msg == 1) {
                     $("#add_marital_status_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Marital Status has been added.</div>');
                     add_marital_status_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/marital_statuses/marital_statuses_controller/manage_marital_statuses');
                 } else {
                     $("#add_marital_status_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Marital Status has failed.</div>');
                 }
@@ -349,7 +350,7 @@ function maritalstatusEditForm() {
                 if (msg == 1) {
                     $("#edit_marital_status_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Marital Status updated successfully.</div>');
                     edit_marital_status_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/marital_statuses/marital_statuses_controller/manage_marital_statuses');
                 } else {
                     $("#edit_marital_status_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Marital Status has failed.</div>');
                 }

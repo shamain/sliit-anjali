@@ -71,8 +71,10 @@ class Course_instructor_controller extends CI_Controller {
         $data['instructor'] = $courses_instructor_service->get_course_instructor_by_id($id);
 
 
-        $partials = array('content' => 'courses/edit_course_instructor_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'courses/edit_course_instructor_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        
+         $this->load->view('courses/edit_course_instructor_view', $data);
     }
 
     function edit_course_instructor() {

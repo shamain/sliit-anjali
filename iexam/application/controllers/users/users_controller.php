@@ -95,8 +95,10 @@ class Users_controller extends CI_Controller {
         $data['user_levels'] = $user_level_service->get_all_user_levels();
 
 
-        $partials = array('content' => 'users/edit_users_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'users/edit_users_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        
+        $this->load->view('users/edit_users_view', $data);
     }
 
     function edit_user() {

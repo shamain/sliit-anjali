@@ -47,7 +47,7 @@
                                 <td><?php echo $course->Course; ?></td>
                                 <td><?php echo $course->Subject; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/courses/courses_controller/edit_course_view/<?php echo $course->CourseID; ?>" title="Edit this Course">
+                                    <a style="cursor: pointer" onclick="LoadAjaxContent('<?php echo site_url(); ?>/courses/courses_controller/edit_course_view/<?php echo $course->CourseID; ?>')"  title="Edit this Course">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Course" onclick="delete_course(<?php echo $course->CourseID; ?>)">

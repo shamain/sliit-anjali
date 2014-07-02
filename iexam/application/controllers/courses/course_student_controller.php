@@ -70,8 +70,10 @@ class Course_student_controller extends CI_Controller {
         $data['students'] = $users_service->get_all_users();
 
 
-        $partials = array('content' => 'courses/edit_course_students_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'courses/edit_course_students_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        
+         $this->load->view('courses/edit_course_students_view', $data);
     }
 
     function edit_course_student() {

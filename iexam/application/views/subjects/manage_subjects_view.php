@@ -33,7 +33,7 @@
                                 <td><?php echo ++$i; ?></td>
                                 <td><?php echo $subject->Subject; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/subjects/subjects_controller/edit_subject_view/<?php echo $subject->SubjectID; ?>" title="Edit this Subject">
+                                    <a style="cursor: pointer" onclick="LoadAjaxContent('<?php echo site_url(); ?>/subjects/subjects_controller/edit_subject_view/<?php echo $subject->SubjectID; ?>')" title="Edit this Subject">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this Subject" onclick="delete_subject(<?php echo $subject->SubjectID; ?>)">

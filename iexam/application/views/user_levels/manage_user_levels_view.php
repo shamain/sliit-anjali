@@ -22,12 +22,12 @@
 
             <div class="box-content">
                 <button class="btn btn-success" type="button" id="add_user_level_btn" data-toggle="modal" data-target="#add_user_level_modal">
-                    <i class="fa fa-plus"></i>
+                    Add User Level
                 </button>
             </div>
 
             <div class="box-content no-padding">
-                <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="subject_table">
+                <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="userlevel_table">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -44,7 +44,7 @@
                                 <td><?php echo ++$i; ?></td>
                                 <td><?php echo $user_level->userlevelname; ?></td>
                                 <td>
-                                    <a href="<?php echo site_url(); ?>/user_levels/user_levels_controller/edit_user_level_view/<?php echo $user_level->userlevelid; ?>" title="Edit this User Level">
+                                    <a style="cursor: pointer" onclick="LoadAjaxContent('<?php echo site_url(); ?>/user_levels/user_levels_controller/edit_user_level_view/<?php echo $user_level->userlevelid; ?>')"  title="Edit this User Level">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a style="cursor: pointer;"   title="Delete this User Level" onclick="delete_userlevel(<?php echo $user_level->userlevelid; ?>)">

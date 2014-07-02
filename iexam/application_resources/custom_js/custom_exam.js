@@ -37,7 +37,7 @@ function examtypeAddForm() {
                 if (msg == 1) {
                     $("#add_exam_type_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Exam Type has been added.</div>');
                     add_exam_type_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/examination_types/examination_types_controller/manage_examination_types');
                 } else {
                     $("#add_exam_type_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Exam Type has failed.</div>');
                 }
@@ -64,7 +64,7 @@ function examtypeEditForm() {
                 if (msg == 1) {
                     $("#edit_exam_type_msg").html('<div class="alert alert-success"><button class="close" data-dismiss="alert"></button>Success: The Exam Type updated successfully.</div>');
                     edit_exam_type_form.reset();
-                    location.reload();
+                    LoadAjaxContent(site_url + '/examination_types/examination_types_controller/manage_examination_types');
                 } else {
                     $("#edit_exam_type_msg").html('<div class="alert alert-error"><button class="close" data-dismiss="alert"></button>Error: The Exam Type has failed.</div>');
                 }

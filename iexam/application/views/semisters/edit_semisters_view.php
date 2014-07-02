@@ -36,7 +36,7 @@
                     <div id="edit_semister_msg" class="form-row"> </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default"  onclick="history.go(-1);">Close</button>
+                        <button type="button" class="btn btn-default"  onclick="LoadAjaxContent('<?php echo site_url(); ?>/semister/semister_controller/manage_semisters')">Back</button>
 
                     </div>
 
@@ -46,7 +46,11 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $('#basic_setting_parent_menu').addClass('active-parent active');
-    $('#semister_menu').removeClass('active-parent active');
+<script>
+
+
+                            $(document).ready(function() {
+                                LoadBootstrapValidatorScript(semisterEditForm);
+                            });
+
 </script>

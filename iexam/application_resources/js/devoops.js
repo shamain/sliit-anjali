@@ -90,6 +90,7 @@ function LoadSelect2Script(callback){
 //
 function LoadDataTablesScripts(callback){
 	function LoadDatatables(){
+           
 		$.getScript(js_base_url+'application_resources/plugins/datatables/jquery.dataTables.js', function(){
 			$.getScript(js_base_url+'application_resources/plugins/datatables/ZeroClipboard.js', function(){
 				$.getScript(js_base_url+'application_resources/plugins/datatables/TableTools.js', function(){
@@ -2340,7 +2341,7 @@ $(document).ready(function () {
 				$('#content').removeClass('full-content');
 			}
 			var url = $(this).attr('href');
-			window.location.hash = url;
+			//window.location.h = url;//edited
 			LoadAjaxContent(url);
 		}
 		if ($(this).attr('href') == '#') {

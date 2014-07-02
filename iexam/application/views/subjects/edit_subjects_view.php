@@ -35,7 +35,7 @@
                     <div id="edit_subject_msg" class="form-row"> </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" onclick="LoadAjaxContent('<?php echo site_url(); ?>/subjects/subjects_controller/manage_subjects')">Back</button>
 
                     </div>
 
@@ -45,3 +45,11 @@
     </div>
 </div>
 
+<script>
+
+
+                            $(document).ready(function() {
+                                LoadBootstrapValidatorScript(subjectEditForm);
+                            });
+
+</script>

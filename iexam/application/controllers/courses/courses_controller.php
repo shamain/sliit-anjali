@@ -64,8 +64,10 @@ class Courses_controller extends CI_Controller {
         $data['subjects'] = $subject_service->get_all_subjects();
 
 
-        $partials = array('content' => 'courses/edit_courses_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'courses/edit_courses_view');
+//        $this->template->load('template/main_template', $partials, $data);
+        
+        $this->load->view('courses/edit_courses_view', $data);
     }
 
     function edit_course() {

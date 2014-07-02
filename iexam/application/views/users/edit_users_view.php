@@ -235,6 +235,46 @@
                         </fieldset>
 
 
+                        <script src="<?php echo base_url(); ?>application_resources/file_upload_plugin/ajaxupload.3.5.js"></script>
+                        <script type="text/javascript">
+
+                            $(function() {
+                                var btnUpload = $('#upload');
+                                var status = $('#status');
+                                new AjaxUpload(btnUpload, {
+                                    action: '<?PHP echo site_url(); ?>/users/upload_file',
+                                    name: 'uploadfile',
+                                    onSubmit: function(file, ext) {
+                                        if (!(ext && /^(jpg|png|jpeg|gif)$/.test(ext))) {
+                                            // extension is not allowed 
+                                            status.text('Only JPG, PNG or GIF files are allowed');
+                                            return false;
+                                        }
+                                        //status.text('Uploading...Please wait');
+                                        $("#sta").html("<img src='<?php echo base_url(); ?>/application_resources/img/ajaxloader.gif' />");
+
+                                    },
+                                    onComplete: function(file, response) {
+                                        //On completion clear the status
+                                        //status.text('');
+                                        $("#sta").html("");
+                                        //Add uploaded file to list
+                                        if (response != "error") {
+
+                                            $('#files').html("");
+                                            $('<div></div>').appendTo('#files').html('<img src="<?PHP echo base_url(); ?>uploads/user_avatar/' + response + '" alt="" width="100px" height="100px" /><br />');
+                                            picFileName = response;
+                                            document.getElementById('image').value = file;
+                                            document.getElementById('pro_image').value = response;
+                                        } else {
+                                            $('<div></div>').appendTo('#files').text(file).addClass('error');
+                                        }
+                                    }
+                                });
+
+                            });
+
+                        </script>
 
 
                         <fieldset>
@@ -263,7 +303,7 @@
                     <div id="edit_user_msg" class="form-row"> </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" onclick="LoadAjaxContent('<?php echo site_url(); ?>/users/users_controller/manage_users')">Back</button>
 
                     </div>
 
@@ -273,3 +313,11 @@
     </div>
 </div>
 
+<script>
+
+
+                            $(document).ready(function() {
+                                LoadBootstrapValidatorScript(usersEditForm);
+                            });
+
+</script>
