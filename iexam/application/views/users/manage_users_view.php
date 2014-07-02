@@ -33,9 +33,10 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>User</th>
+                            <th>Name</th>
                             <th>Designation</th>
                             <th>User Level</th>
+                            <th>User Name</th>
                             <th>Email</th>
                             <th>Reg No</th>
                             <th>NIC</th>
@@ -57,6 +58,7 @@
                                 <td><?php echo $user->FirstName . ' ' . $user->MiddleName . ' ' . $user->LastName; ?></td>
                                 <td><?php echo $user->Designation; ?></td>
                                 <td><?php echo $user->userlevelname; ?></td>
+                                <td><?php echo $user->Username; ?></td>
                                 <td><?php echo $user->Email; ?></td>
                                 <td><?php echo $user->RegistrationNumber; ?></td>
                                 <td><?php echo $user->NICNumber; ?></td>

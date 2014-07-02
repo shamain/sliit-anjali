@@ -31,7 +31,7 @@ class Subjects_controller extends CI_Controller {
     function add_new_subject() {
 
 
-//        $subjects_model = new Subjects_model();
+        $subjects_model = new Subjects_model();
         $subjects_service = new Subjects_service();
 
         $subjects_model->setSubject($this->input->post('subject_name', TRUE));
