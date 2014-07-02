@@ -48,7 +48,7 @@
             <div class="container-fluid expanded-panel">
                 <div class="row">
                     <div id="logo" class="col-xs-12 col-sm-2">
-                        <a href="index.html">Online Exam System</a>
+                        <a href="">Online Exam System</a>
                     </div>
                     <div id="top-panel" class="col-xs-12 col-sm-10">
                         <div class="row">
@@ -56,10 +56,10 @@
                                 <a href="#" class="show-sidebar">
                                     <i class="fa fa-bars"></i>
                                 </a>
-                                <div id="search">
+<!--                                <div id="search">
                                     <input type="text" placeholder="search"/>
                                     <i class="fa fa-search"></i>
-                                </div>
+                                </div>-->
                             </div>
                             <div class="col-xs-4 col-sm-8 top-panel-right">
                                 <ul class="nav navbar-nav pull-right panel-menu">
@@ -106,7 +106,7 @@
                 <div id="sidebar-left" class="col-xs-2 col-sm-2">
                     <ul class="nav main-menu">
                         <li>
-                            <a href="ajax/dashboard.html" class="active ajax-link">
+                            <a href="" class="active ajax-link">
                                 <i class="fa fa-dashboard"></i>
                                 <span class="hidden-xs">Dashboard</span>
                             </a>
