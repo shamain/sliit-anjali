@@ -26,6 +26,9 @@ class Exams_controller extends CI_Controller {
             $this->load->model('users/users_model');
             $this->load->model('users/users_service');
             
+            $this->load->model('course_instructor/course_instructor_model');
+            $this->load->model('course_instructor/course_instructor_service');
+            
         }
     }
 
