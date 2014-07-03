@@ -9,10 +9,18 @@ class Examinations_service extends CI_Model {
 
     public function get_all_examinations() {
 
-        $this->db->select('*');
+        $this->db->select('examinations.*,courses.Course,users.FirstName as Instructor,semisters.Semester,examination_types.ExaminationType');
         $this->db->from('examinations');
-        $this->db->where('DelInd', '1');
-        $this->db->order_by("ExaminationID", "desc");
+        $this->db->join('courses', 'courses.CourseID = examinations.CourseID');
+        $this->db->join('users', 'users.UserID = examinations.InsttructorID');
+        $this->db->join('semisters', 'semisters.SemesterID = examinations.SeminsterID');
+        $this->db->join('examination_types', 'semisters.ExaminationTypeID = examinations.ExaminationTypeID');
+        $this->db->where('examinations.DelInd', '1');
+        $this->db->where('users.DelInd', '1');
+        $this->db->where('courses.DelInd', '1');
+        $this->db->where('semisters.DelInd', '1');
+        $this->db->where('examination_types.DelInd', '1');
+        $this->db->order_by("examinations.ExaminationID", "desc");
         $query = $this->db->get();
         return $query->result();
     }
@@ -43,7 +51,8 @@ class Examinations_service extends CI_Model {
             'InstructorID' => $examination_model->getInstructorID(),
             'NumberOfMCQs' => $examination_model->getNumberOfMCQs(),
             'NumberOfShortAnswerQuestions' => $examination_model->getNumberOfShortAnswerQuestions(),
-            'Duration' => $examination_model->getDuration(),
+            'StartDate' => $examination_model->getStartDate(),
+            'EndDate' => $examination_model->getEndDate(),
             'Active' => $examination_model->getActive()
         );
 

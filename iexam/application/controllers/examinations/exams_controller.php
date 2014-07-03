@@ -35,12 +35,14 @@ class Exams_controller extends CI_Controller {
         $examination_types_service = new Examination_types_service();
         $semister_service = new Semisters_service();
         $courses_service = new Courses_service();
+        $course_instructor_service = new Course_instructor_service();
 
         $data['heading'] = "Manage Examinations";
         $data['examinations'] = $examinations_service->get_all_examinations();
         $data['examination_types'] = $examination_types_service->get_all_examination_types();
         $data['semesters'] = $semister_service->get_all_semisters();
         $data['courses'] = $courses_service->get_all_courses();
+        $data['instructors'] = $course_instructor_service->get_all_course_instructor();
 
 
 //        $partials = array('content' => 'examination_types/manage_examination_types_view');
@@ -63,7 +65,8 @@ class Exams_controller extends CI_Controller {
         $examinations_model->setInstructorID($this->input->post('instructor_id', TRUE));
         $examinations_model->setNumberOfMCQs($this->input->post('no_mcq', TRUE));
         $examinations_model->setNumberOfShortAnswerQuestions($this->input->post('no_short_ans', TRUE));
-        $examinations_model->setDuration($this->input->post('duration', TRUE));
+        $examinations_model->setStartDate($this->input->post('start_date', TRUE));
+        $examinations_model->setEndDate($this->input->post('end_date', TRUE));
         $examinations_model->setActive($this->input->post('active', TRUE));
         $examinations_model->setDelInd('1');
 
@@ -85,8 +88,7 @@ class Exams_controller extends CI_Controller {
         $data['examination'] = $examinations_service->get_examination_by_id($id);
 
 
-        $partials = array('content' => 'semisters/edit_semisters_view');
-        $this->template->load('template/main_template', $partials, $data);
+        $this->load->view('examinations/edit_examination_view', $data);
     }
 
     function edit_examination() {
@@ -101,7 +103,8 @@ class Exams_controller extends CI_Controller {
         $examinations_model->setInstructorID($this->input->post('instructor_id', TRUE));
         $examinations_model->setNumberOfMCQs($this->input->post('no_mcq', TRUE));
         $examinations_model->setNumberOfShortAnswerQuestions($this->input->post('no_short_ans', TRUE));
-        $examinations_model->setDuration($this->input->post('duration', TRUE));
+        $examinations_model->setStartDate($this->input->post('start_date', TRUE));
+        $examinations_model->setEndDate($this->input->post('end_date', TRUE));
         $examinations_model->setActive($this->input->post('active', TRUE));
         $examinations_model->setDelInd('1');
 

@@ -1,7 +1,7 @@
 <?php
 
-class Examinations_model extends CI_Model{
-    
+class Examinations_model extends CI_Model {
+
     var $ExaminationID;
     var $Name;
     var $ExaminationTypeID;
@@ -12,12 +12,15 @@ class Examinations_model extends CI_Model{
     var $NumberOfMCQs;
     var $NumberOfShortAnswerQuestions;
     var $Duration;
+    var $StartDate;
+    var $EndDate;
     var $Active;
     var $DelInd;
-    
+
     function __construct() {
         parent::__construct();
     }
+
     public function getExaminationID() {
         return $this->ExaminationID;
     }
@@ -56,6 +59,14 @@ class Examinations_model extends CI_Model{
 
     public function getDuration() {
         return $this->Duration;
+    }
+
+    public function getStartDate() {
+        return $this->StartDate;
+    }
+
+    public function getEndDate() {
+        return $this->EndDate;
     }
 
     public function getActive() {
@@ -106,6 +117,14 @@ class Examinations_model extends CI_Model{
         $this->Duration = $Duration;
     }
 
+    public function setStartDate($StartDate) {
+        $this->StartDate = $StartDate;
+    }
+
+    public function setEndDate($EndDate) {
+        $this->EndDate = $EndDate;
+    }
+
     public function setActive($Active) {
         $this->Active = $Active;
     }
@@ -114,7 +133,4 @@ class Examinations_model extends CI_Model{
         $this->DelInd = $DelInd;
     }
 
-
-   
 }
-

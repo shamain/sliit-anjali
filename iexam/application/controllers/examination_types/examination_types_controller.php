@@ -56,8 +56,10 @@ class Examination_types_controller extends CI_Controller {
         $data['examination_type'] = $examination_types_service->get_examination_type_by_id($id);
 
 
-        $partials = array('content' => 'examination_types/edit_examination_types_view');
-        $this->template->load('template/main_template', $partials, $data);
+//        $partials = array('content' => 'examination_types/edit_examination_types_view');
+//        $this->template->load('template/main_template', $partials, $data);
+
+        $this->load->view('examination_types/edit_examination_types_view', $data);
     }
 
     function edit_examination_type() {
